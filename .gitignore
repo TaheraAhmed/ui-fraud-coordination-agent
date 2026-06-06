@@ -216,3 +216,32 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Credentials and secrets - NEVER commit
+.env
+.env.local
+*.key
+*-key.json
+credentials/
+.gcp-keys/
+
+# Project-specific generated data
+data/*.dat
+data/*.json
+!data/samples/
+!data/samples/.gitkeep
+
+# IDE
+.vscode/
+.idea/
+.DS_Store
+
+# Scratch
+scratch/
+
+.venv/
+__pycache__/
+.python-version
+
+.cursor/
+.cursorrules
