@@ -43,7 +43,6 @@ Partner integrations:
 See `SCOPE.md` for the full statement of what is demonstrated, simulated, and treated as future work.
 
 ## Setup
-## Setup
 
 Requires Python 3.11+ and [uv](https://docs.astral.sh/uv/) for package management. You'll also need:
 
