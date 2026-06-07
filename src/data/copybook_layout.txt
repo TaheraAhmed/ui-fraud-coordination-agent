@@ -1,0 +1,15 @@
+01  CLAIM-RECORD.
+    05  CLAIM-ID                PIC X(12).
+    05  FILING-STATE            PIC X(02).
+    05  CLAIM-DATE              PIC X(10).
+    05  WEEKLY-BENEFIT-AMOUNT   PIC 9(04).
+    05  EMPLOYER-EIN            PIC X(09).
+    05  CLAIMANT-SSN            PIC X(11).
+    05  DEVICE-FINGERPRINT      PIC X(32).
+    05  BANK-ROUTING            PIC X(09).
+    05  BANK-ACCOUNT            PIC X(12).
+    05  FIRST-NAME              PIC X(20).
+    05  LAST-NAME               PIC X(20).
+    05  DOB                     PIC X(10).
+    05  ADDRESS                 PIC X(50).
+    05  IP-ADDRESS              PIC X(15).

@@ -1,0 +1,544 @@
+{
+  "pattern_1_ssn_reuse": [
+    {
+      "claim_ids": [
+        "SA-000001126",
+        "SB-000000692"
+      ],
+      "shared_ssn_hash_input": "049-54-0887",
+      "type": "ssn_reuse"
+    },
+    {
+      "claim_ids": [
+        "SA-000000892",
+        "SB-000000273"
+      ],
+      "shared_ssn_hash_input": "693-52-4725",
+      "type": "ssn_reuse"
+    },
+    {
+      "claim_ids": [
+        "SA-000000700",
+        "SB-000000531"
+      ],
+      "shared_ssn_hash_input": "417-32-3175",
+      "type": "ssn_reuse"
+    },
+    {
+      "claim_ids": [
+        "SA-000000791",
+        "SB-000000451"
+      ],
+      "shared_ssn_hash_input": "016-10-4620",
+      "type": "ssn_reuse"
+    },
+    {
+      "claim_ids": [
+        "SA-000000963",
+        "SB-000000295"
+      ],
+      "shared_ssn_hash_input": "003-66-1781",
+      "type": "ssn_reuse"
+    },
+    {
+      "claim_ids": [
+        "SA-000000032",
+        "SB-000000251"
+      ],
+      "shared_ssn_hash_input": "551-65-2897",
+      "type": "ssn_reuse"
+    },
+    {
+      "claim_ids": [
+        "SA-000000039",
+        "SB-000000418"
+      ],
+      "shared_ssn_hash_input": "856-41-4773",
+      "type": "ssn_reuse"
+    },
+    {
+      "claim_ids": [
+        "SA-000000501",
+        "SB-000000652"
+      ],
+      "shared_ssn_hash_input": "325-24-1584",
+      "type": "ssn_reuse"
+    },
+    {
+      "claim_ids": [
+        "SA-000001140",
+        "SB-000000198"
+      ],
+      "shared_ssn_hash_input": "104-27-3678",
+      "type": "ssn_reuse"
+    },
+    {
+      "claim_ids": [
+        "SA-000000346",
+        "SB-000000574"
+      ],
+      "shared_ssn_hash_input": "570-57-9192",
+      "type": "ssn_reuse"
+    },
+    {
+      "claim_ids": [
+        "SA-000001048",
+        "SB-000000703"
+      ],
+      "shared_ssn_hash_input": "728-65-1791",
+      "type": "ssn_reuse"
+    },
+    {
+      "claim_ids": [
+        "SA-000000064",
+        "SB-000000100"
+      ],
+      "shared_ssn_hash_input": "893-90-2314",
+      "type": "ssn_reuse"
+    },
+    {
+      "claim_ids": [
+        "SA-000000593",
+        "SB-000000120"
+      ],
+      "shared_ssn_hash_input": "702-30-9927",
+      "type": "ssn_reuse"
+    },
+    {
+      "claim_ids": [
+        "SA-000001104",
+        "SB-000000206"
+      ],
+      "shared_ssn_hash_input": "181-38-1911",
+      "type": "ssn_reuse"
+    },
+    {
+      "claim_ids": [
+        "SA-000000161",
+        "SB-000000335"
+      ],
+      "shared_ssn_hash_input": "531-20-4769",
+      "type": "ssn_reuse"
+    },
+    {
+      "claim_ids": [
+        "SA-000000260",
+        "SB-000000737"
+      ],
+      "shared_ssn_hash_input": "618-85-5942",
+      "type": "ssn_reuse"
+    },
+    {
+      "claim_ids": [
+        "SA-000001133",
+        "SB-000000342"
+      ],
+      "shared_ssn_hash_input": "024-61-4351",
+      "type": "ssn_reuse"
+    },
+    {
+      "claim_ids": [
+        "SA-000001079",
+        "SB-000000066"
+      ],
+      "shared_ssn_hash_input": "022-82-3878",
+      "type": "ssn_reuse"
+    },
+    {
+      "claim_ids": [
+        "SA-000000633",
+        "SB-000000168"
+      ],
+      "shared_ssn_hash_input": "645-94-7832",
+      "type": "ssn_reuse"
+    },
+    {
+      "claim_ids": [
+        "SA-000000486",
+        "SB-000000336"
+      ],
+      "shared_ssn_hash_input": "641-96-1475",
+      "type": "ssn_reuse"
+    },
+    {
+      "claim_ids": [
+        "SA-000000728",
+        "SB-000000231"
+      ],
+      "shared_ssn_hash_input": "109-73-2686",
+      "type": "ssn_reuse"
+    },
+    {
+      "claim_ids": [
+        "SA-000000522",
+        "SB-000000261"
+      ],
+      "shared_ssn_hash_input": "291-75-5973",
+      "type": "ssn_reuse"
+    },
+    {
+      "claim_ids": [
+        "SA-000000372",
+        "SB-000000438"
+      ],
+      "shared_ssn_hash_input": "592-35-7333",
+      "type": "ssn_reuse"
+    },
+    {
+      "claim_ids": [
+        "SA-000000348",
+        "SB-000000379"
+      ],
+      "shared_ssn_hash_input": "577-56-3027",
+      "type": "ssn_reuse"
+    },
+    {
+      "claim_ids": [
+        "SA-000001015",
+        "SB-000000778"
+      ],
+      "shared_ssn_hash_input": "462-26-9050",
+      "type": "ssn_reuse"
+    },
+    {
+      "claim_ids": [
+        "SA-000000533",
+        "SB-000000564"
+      ],
+      "shared_ssn_hash_input": "320-16-4391",
+      "type": "ssn_reuse"
+    },
+    {
+      "claim_ids": [
+        "SA-000001035",
+        "SB-000000208"
+      ],
+      "shared_ssn_hash_input": "115-98-3999",
+      "type": "ssn_reuse"
+    },
+    {
+      "claim_ids": [
+        "SA-000000068",
+        "SB-000000209"
+      ],
+      "shared_ssn_hash_input": "490-76-2011",
+      "type": "ssn_reuse"
+    },
+    {
+      "claim_ids": [
+        "SA-000000048",
+        "SB-000000671"
+      ],
+      "shared_ssn_hash_input": "233-46-2894",
+      "type": "ssn_reuse"
+    },
+    {
+      "claim_ids": [
+        "SA-000000640",
+        "SB-000000333"
+      ],
+      "shared_ssn_hash_input": "446-23-2959",
+      "type": "ssn_reuse"
+    }
+  ],
+  "pattern_2_device_collision": [
+    {
+      "claim_ids": [
+        "SA-000001112",
+        "SB-000000083",
+        "SB-000000061",
+        "SB-000000260"
+      ],
+      "shared_device_hash_input": "7790818cee9b500741a31464f1a06f12",
+      "type": "device_collision"
+    },
+    {
+      "claim_ids": [
+        "SA-000000720",
+        "SB-000000634",
+        "SB-000000499",
+        "SB-000000252"
+      ],
+      "shared_device_hash_input": "b72fea6e53bf478eda66e855c003dc55",
+      "type": "device_collision"
+    },
+    {
+      "claim_ids": [
+        "SA-000000855",
+        "SB-000000571",
+        "SB-000000439",
+        "SB-000000620"
+      ],
+      "shared_device_hash_input": "19228e58d76c7db8dfdbfb219208cc7a",
+      "type": "device_collision"
+    },
+    {
+      "claim_ids": [
+        "SA-000000856",
+        "SA-000000080",
+        "SB-000000189"
+      ],
+      "shared_device_hash_input": "4aa1be78887990df2164425e6e8bc6dc",
+      "type": "device_collision"
+    },
+    {
+      "claim_ids": [
+        "SA-000000211",
+        "SB-000000795",
+        "SB-000000447",
+        "SB-000000364"
+      ],
+      "shared_device_hash_input": "7c77630b998f27cb242ad2a39d1b05e8",
+      "type": "device_collision"
+    },
+    {
+      "claim_ids": [
+        "SA-000000727",
+        "SB-000000297",
+        "SB-000000540"
+      ],
+      "shared_device_hash_input": "9fe412ff10c8651cd59da48543befbf1",
+      "type": "device_collision"
+    },
+    {
+      "claim_ids": [
+        "SA-000000316",
+        "SB-000000032",
+        "SB-000000387",
+        "SB-000000785"
+      ],
+      "shared_device_hash_input": "52cd69809da7bc5bca8b59903308c2fe",
+      "type": "device_collision"
+    },
+    {
+      "claim_ids": [
+        "SA-000001054",
+        "SA-000001153",
+        "SB-000000631"
+      ],
+      "shared_device_hash_input": "6bfde4026a7c56d5e8f0fbdc03e1c321",
+      "type": "device_collision"
+    },
+    {
+      "claim_ids": [
+        "SA-000000831",
+        "SB-000000298",
+        "SB-000000661"
+      ],
+      "shared_device_hash_input": "b0fa5d4e5887370a33cc805255afa818",
+      "type": "device_collision"
+    },
+    {
+      "claim_ids": [
+        "SA-000000751",
+        "SB-000000397",
+        "SB-000000660"
+      ],
+      "shared_device_hash_input": "af740b2c0147ffa26ce0f09b16b7eaba",
+      "type": "device_collision"
+    },
+    {
+      "claim_ids": [
+        "SA-000000511",
+        "SB-000000408",
+        "SB-000000278",
+        "SB-000000735"
+      ],
+      "shared_device_hash_input": "f832b1eeb102c7d6da5d7fcba547f8c9",
+      "type": "device_collision"
+    },
+    {
+      "claim_ids": [
+        "SA-000001160",
+        "SB-000000461",
+        "SB-000000519",
+        "SB-000000191",
+        "SB-000000681"
+      ],
+      "shared_device_hash_input": "d2442eec4398fdadbbe3dc3a43dd6599",
+      "type": "device_collision"
+    },
+    {
+      "claim_ids": [
+        "SA-000000913",
+        "SB-000000796",
+        "SB-000000263",
+        "SB-000000296"
+      ],
+      "shared_device_hash_input": "bd7fc9a2f5df494ddc403e7c2b9220d0",
+      "type": "device_collision"
+    },
+    {
+      "claim_ids": [
+        "SA-000000742",
+        "SA-000000523",
+        "SA-000000558",
+        "SB-000000560"
+      ],
+      "shared_device_hash_input": "b3be63223173eb8720e1fddf40ee0fbe",
+      "type": "device_collision"
+    },
+    {
+      "claim_ids": [
+        "SA-000000124",
+        "SA-000000189",
+        "SA-000000915",
+        "SB-000000741"
+      ],
+      "shared_device_hash_input": "11292e95a83136fa4b1ca8cda7cd2143",
+      "type": "device_collision"
+    }
+  ],
+  "pattern_3_bank_reuse": [
+    {
+      "claim_ids": [
+        "SA-000000243",
+        "SB-000000343"
+      ],
+      "shared_routing_hash_input": "032679946",
+      "shared_account_hash_input": "646820355467",
+      "type": "bank_reuse"
+    },
+    {
+      "claim_ids": [
+        "SA-000001060",
+        "SB-000000035",
+        "SB-000000170"
+      ],
+      "shared_routing_hash_input": "023981216",
+      "shared_account_hash_input": "261789427124",
+      "type": "bank_reuse"
+    },
+    {
+      "claim_ids": [
+        "SA-000000078",
+        "SB-000000111",
+        "SB-000000526",
+        "SB-000000614"
+      ],
+      "shared_routing_hash_input": "087351905",
+      "shared_account_hash_input": "166167482762",
+      "type": "bank_reuse"
+    },
+    {
+      "claim_ids": [
+        "SA-000000996",
+        "SA-000000691",
+        "SB-000000457",
+        "SB-000000702"
+      ],
+      "shared_routing_hash_input": "092038640",
+      "shared_account_hash_input": "033316284245",
+      "type": "bank_reuse"
+    },
+    {
+      "claim_ids": [
+        "SA-000000158",
+        "SA-000000325",
+        "SB-000000458"
+      ],
+      "shared_routing_hash_input": "078218853",
+      "shared_account_hash_input": "821459476451",
+      "type": "bank_reuse"
+    },
+    {
+      "claim_ids": [
+        "SA-000001010",
+        "SB-000000277"
+      ],
+      "shared_routing_hash_input": "087194845",
+      "shared_account_hash_input": "480062983805",
+      "type": "bank_reuse"
+    },
+    {
+      "claim_ids": [
+        "SA-000000278",
+        "SA-000000602",
+        "SB-000000725",
+        "SB-000000610"
+      ],
+      "shared_routing_hash_input": "076022850",
+      "shared_account_hash_input": "750438016296",
+      "type": "bank_reuse"
+    },
+    {
+      "claim_ids": [
+        "SA-000001033",
+        "SB-000000678",
+        "SB-000000269"
+      ],
+      "shared_routing_hash_input": "093868479",
+      "shared_account_hash_input": "082467180731",
+      "type": "bank_reuse"
+    },
+    {
+      "claim_ids": [
+        "SA-000000355",
+        "SB-000000195"
+      ],
+      "shared_routing_hash_input": "090330638",
+      "shared_account_hash_input": "795523227722",
+      "type": "bank_reuse"
+    },
+    {
+      "claim_ids": [
+        "SA-000000408",
+        "SA-000000387",
+        "SB-000000695"
+      ],
+      "shared_routing_hash_input": "086362869",
+      "shared_account_hash_input": "942938979777",
+      "type": "bank_reuse"
+    }
+  ],
+  "pattern_4_ring": [
+    {
+      "claim_ids": [
+        "SA-000000580",
+        "SA-000001174",
+        "SA-000001116",
+        "SA-000001109",
+        "SB-000000150",
+        "SB-000000504",
+        "SB-000000647",
+        "SB-000000026"
+      ],
+      "links": [
+        {
+          "type": "ssn_match",
+          "claim_ids": [
+            "SA-000000580",
+            "SB-000000150"
+          ]
+        },
+        {
+          "type": "device_match_state_a",
+          "claim_ids": [
+            "SA-000001174",
+            "SA-000001116"
+          ]
+        },
+        {
+          "type": "device_match_state_b",
+          "claim_ids": [
+            "SB-000000504",
+            "SB-000000647"
+          ]
+        },
+        {
+          "type": "bank_match",
+          "claim_ids": [
+            "SA-000001109",
+            "SB-000000026"
+          ]
+        }
+      ],
+      "shared_ssn_hash_input": "077-55-8922",
+      "shared_device_a_hash_input": "0ffbdf0d5b222d401cb2e2b404e90415",
+      "shared_device_b_hash_input": "0edd1da02eb8d15e5370913141924251",
+      "shared_routing_hash_input": "091264088",
+      "shared_account_hash_input": "757976417483",
+      "type": "ring"
+    }
+  ]
+}

@@ -245,3 +245,5 @@ __pycache__/
 
 .cursor/
 .cursorrules
+
+!data/ground_truth.json

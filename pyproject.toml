@@ -5,7 +5,13 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
+    "faker>=40.21.0",
     "google-genai>=2.8.0",
     "pymongo>=4.17.0",
     "python-dotenv>=1.2.2",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0.3",
 ]
