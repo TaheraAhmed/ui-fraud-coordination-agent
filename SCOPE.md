@@ -48,6 +48,26 @@ The federation salt is loaded from a single `.env` file shared by all components
 
 None of this is implemented in the prototype. Key management is treated only as future work and addressed in the methodology paper.
 
+### Federation coordination layer *(complete as of Day 3)*
+
+- Both states' data sources expose the identical federation-safe record shape, mechanically proving the adapter pattern is format-agnostic (`src/agent/tools/legacy_reader.py` and `src/agent/tools/modern_reader.py`).
+- The federation query tool searches both states by hashed identifier and returns matches without exposing raw values (`src/agent/tools/federation_query.py`). Every query writes a structured audit event.
+- The audit log uses per-event SHA-256 hashes for tamper-evidence (`src/agent/tools/audit.py`). Hash chaining is future work.
+- Quasi-identifier release requires explicit justification and produces an audit log entry per call (`src/agent/tools/local_lookup.py`). Failed lookups are also audited.
+
+### Agent reasoning layer *(complete as of Day 3)*
+
+- A single Gemini 2.5 Flash agent orchestrates four tools via Vertex AI function calling (`src/agent/orchestrator.py`).
+- The agent classifies match results into three categories: self-matches (never reported), cross-state matches (primary mission, justifies quasi-identifier release), and within-state collisions (secondary findings).
+- The system prompt is version-controlled (`src/agent/prompts/system_prompt.md`) and treated as code.
+- End-to-end behavior validated on four scenarios: cross-state SSN reuse pair, no-match clean claim, coordinated ring with cross-state SSN link, coordinated ring with within-state device collision.
+
+### Agent observability *(complete as of Day 3)*
+
+- All Gemini reasoning steps and tool calls are captured as structured OpenTelemetry traces in Arize AX (`src/observability/arize_setup.py`).
+- Auto-instrumentation via OpenInference's google-genai adapter — no manual span management required.
+- Traces include input prompts, tool selections, tool arguments, tool results, and final responses. This supports the OMB M-25-21 transparency requirement.
+
 ### Legacy data format
 
 State A's data is generated as EBCDIC-encoded fixed-width records following a COBOL copybook layout. This is representative of formats that real state UI mainframes still emit (GAO-23-105478), but it is generated synthetic data, not a real mainframe export. The copybook parser implements only the subset of COBOL syntax used in our layout (`PIC X(n)`, `PIC 9(n)`, level-numbered fields); full COBOL support including `REDEFINES`, `OCCURS`, `COMP-3` packed decimal, and signed fields is treated as future work.
