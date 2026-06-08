@@ -60,6 +60,7 @@ def read_legacy_source(
     file_path: str | Path = DEFAULT_LEGACY_FILE_PATH,
     copybook_path: str | Path = DEFAULT_COPYBOOK_PATH,
     max_records: int | None = None,
+    claim_id: str | None = None,
 ) -> list[dict]:
     """Read claim records from an EBCDIC fixed-width legacy data file.
     
@@ -67,6 +68,7 @@ def read_legacy_source(
         file_path: Path to the EBCDIC binary file.
         copybook_path: Path to the COBOL copybook layout file.
         max_records: Optional cap on records to return. If None, reads all.
+        claim_id: If provided, returns only the matching claim (or empty list).
     
     Returns:
         List of federated-shape claim records, with sticky identifiers
@@ -91,15 +93,30 @@ def read_legacy_source(
         )
 
     total_records = file_size // spec.total_length
-    records_to_read = total_records if max_records is None else min(max_records, total_records)
+    records_to_read = (
+        total_records if max_records is None else min(max_records, total_records)
+    )
 
     federated_records = []
     with file_path.open("rb") as f:
-        for _ in range(records_to_read):
+        for _ in range(total_records):  # We scan all records to support claim_id filter
             raw = f.read(spec.total_length)
             raw_claim = _decode_record(raw, spec)
+
+            # Apply claim_id filter if given
+            if claim_id is not None and raw_claim["claim_id"] != claim_id:
+                continue
+
             federated_claim = transform_claim_identifiers(raw_claim)
             federated_records.append(federated_claim)
+
+            # Short-circuit if we've found the specific claim we wanted
+            if claim_id is not None:
+                break
+
+            # Honor max_records when not filtering by claim_id
+            if claim_id is None and len(federated_records) >= records_to_read:
+                break
 
     return federated_records
 
