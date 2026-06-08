@@ -68,6 +68,15 @@ None of this is implemented in the prototype. Key management is treated only as 
 - Auto-instrumentation via OpenInference's google-genai adapter — no manual span management required.
 - Traces include input prompts, tool selections, tool arguments, tool results, and final responses. This supports the OMB M-25-21 transparency requirement.
 
+
+### Investigator surface *(complete as of Day 4)*
+
+- A Streamlit web interface (`src/ui/app.py`) lets investigators submit natural-language queries, view structured findings with due-process explanations, and review the audit trail.
+- The interface is intentionally minimal: two tabs (Investigation, Audit Log), three example queries that exercise the agent's primary scenarios, and a session-aware audit log viewer.
+- Investigation history is preserved per session, with each run showing the claim under investigation, completion status, duration, and the agent's structured response rendered as markdown.
+- The audit log viewer renders structured MongoDB events with filtering (this session only versus all events) and expandable JSON details per event.
+- The UI runs locally during development; Cloud Run deployment is planned for Day 6.
+
 ### Legacy data format
 
 State A's data is generated as EBCDIC-encoded fixed-width records following a COBOL copybook layout. This is representative of formats that real state UI mainframes still emit (GAO-23-105478), but it is generated synthetic data, not a real mainframe export. The copybook parser implements only the subset of COBOL syntax used in our layout (`PIC X(n)`, `PIC 9(n)`, level-numbered fields); full COBOL support including `REDEFINES`, `OCCURS`, `COMP-3` packed decimal, and signed fields is treated as future work.
