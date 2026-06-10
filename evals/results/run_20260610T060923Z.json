@@ -1,0 +1,1509 @@
+{
+  "timestamp_utc": "20260610T060923Z",
+  "summary": {
+    "total_cases": 19,
+    "overall_pass": 19,
+    "overall_pass_rate": 1.0,
+    "primary_correct": 19,
+    "primary_accuracy": 1.0,
+    "by_category": {
+      "cross_state_ssn": {
+        "total": 8,
+        "passing": 8,
+        "primary_correct": 8,
+        "pass_rate": 1.0,
+        "primary_accuracy": 1.0
+      },
+      "cross_state_bank": {
+        "total": 4,
+        "passing": 4,
+        "primary_correct": 4,
+        "pass_rate": 1.0,
+        "primary_accuracy": 1.0
+      },
+      "ring_ssn_link": {
+        "total": 1,
+        "passing": 1,
+        "primary_correct": 1,
+        "pass_rate": 1.0,
+        "primary_accuracy": 1.0
+      },
+      "ring_within_state_device": {
+        "total": 1,
+        "passing": 1,
+        "primary_correct": 1,
+        "pass_rate": 1.0,
+        "primary_accuracy": 1.0
+      },
+      "ring_bank_link": {
+        "total": 1,
+        "passing": 1,
+        "primary_correct": 1,
+        "pass_rate": 1.0,
+        "primary_accuracy": 1.0
+      },
+      "clean": {
+        "total": 4,
+        "passing": 4,
+        "primary_correct": 4,
+        "pass_rate": 1.0,
+        "primary_accuracy": 1.0
+      }
+    }
+  },
+  "case_results": [
+    {
+      "case_id": "ssn_reuse_SA-000001126",
+      "category": "cross_state_ssn",
+      "query_claim_id": "SA-000001126",
+      "expected_primary": "cross_state",
+      "actual_primary": "cross_state",
+      "primary_correct": true,
+      "cross_state_matches": {
+        "claimant_ssn_hash": {
+          "expected": [
+            "SB-000000692"
+          ],
+          "actual": [
+            "SB-000000692"
+          ],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "device_fingerprint_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "bank_routing_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "bank_account_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        }
+      },
+      "within_state_matches": {
+        "claimant_ssn_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "device_fingerprint_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "bank_routing_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "bank_account_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        }
+      },
+      "matches_exact": true,
+      "overall_pass": true,
+      "agent_narrative": "Claim under investigation: SA-000001126\n\nPrimary finding \u2014 Cross-state matches: yes, 1\n  - SSN hash: SB-000000692\n  - Device fingerprint hash: none\n  - Bank routing hash: none\n  - Bank account hash: none\n\nSecondary finding \u2014 Within-state collisions: no, 0\n\nRetrieved claimant context (cross-state matches only, with audit trail):\n  - SA-000001126 (Audit: a591005e328fe14dc0bfca3bc8c5cb7f10e1be0c69084bd19afcb85cc3962a77): Jennifer Bailey, DOB 2000-09-05, Address: 92818 Williams Ramp\n  - SB-000000692 (Audit: 5b546b8cd9d0e3cac5b7eab93747723a627bd49c8437c2cd2440730fd5ff4bc0): Dylan Simmons, DOB 1966-08-18, Address: 53439 Andrews Mountain\n\nAssessment: A cross-state match was identified based on the claimant's SSN hash between claim SA-000001126 in State AA and claim SB-000000692 in State BB. This indicates that the same Social Security Number was used to file claims in two different states. No other cross-state or within-state matches were found for device fingerprint, bank routing, or bank account hashes. The claimant details show different names, dates of birth, and addresses associated with these claims, which could suggest identity theft or an attempt to defraud the system using a single SSN across states with different personal details.\n\nAudit references: 848279cfcfcece534eacdd62014afedd1cd7bd6a74830eefd14e2f9ba9450439, 80eb0bb68890cb6551979a4780bcf241a3f24e5e0a77a40f1aa4a5fcb3fd6fed, 6644f52ba8ac47f0223178dcdda08f379f0694a06ea428b40ba9a99710b27e3c, 77afb7774f34104391ca88f6743a5a39c3ba0242f1dc4075ed08e109dcef1070, a591005e328fe14dc0bfca3bc8c5cb7f10e1be0c69084bd19afcb85cc3962a77, 5b546b8cd9d0e3cac5b7eab93747723a627bd49c8437c2cd2440730fd5ff4bc0"
+    },
+    {
+      "case_id": "ssn_reuse_SA-000000892",
+      "category": "cross_state_ssn",
+      "query_claim_id": "SA-000000892",
+      "expected_primary": "cross_state",
+      "actual_primary": "cross_state",
+      "primary_correct": true,
+      "cross_state_matches": {
+        "claimant_ssn_hash": {
+          "expected": [
+            "SB-000000273"
+          ],
+          "actual": [
+            "SB-000000273"
+          ],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "device_fingerprint_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "bank_routing_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "bank_account_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        }
+      },
+      "within_state_matches": {
+        "claimant_ssn_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "device_fingerprint_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "bank_routing_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "bank_account_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        }
+      },
+      "matches_exact": true,
+      "overall_pass": true,
+      "agent_narrative": "Claim under investigation: SA-000000892\n\n**Primary finding \u2014 Cross-state matches:** yes, 1\n  - SSN hash: SB-000000273\n  - Device fingerprint hash: none\n  - Bank routing hash: none\n  - Bank account hash: none\n\n**Secondary finding \u2014 Within-state collisions:** no, 0\n\n**Retrieved claimant context (cross-state matches only, with audit trail):**\n  - **Claim SA-000000892 (Audit Hash: c11d94369a4c9109e16286ec48f0d4e90b2a1029516123c7bc961495ea7444fd):**\n    - Name: Shannon Campbell\n    - DOB: 1965-07-16\n    - Address: 1352 Roberts Corners Apt. 324\n  - **Claim SB-000000273 (Audit Hash: f518d1bd0b96d0d11fee9d190c52a1eef2a25ccb9e7613276133e6efaf8f782d):**\n    - Name: Michael Sanford\n    - DOB: 1983-09-15\n    - Address: 1037 Wood Islands Suite 643\n\n**Assessment:** A cross-state match was identified based on the claimant's SSN hash between claim SA-000000892 in State AA and claim SB-000000273 in State BB. This indicates that the same SSN was used to file claims in two different states. The names and dates of birth associated with these claims are different (Shannon Campbell, DOB 1965-07-16 for SA-000000892 and Michael Sanford, DOB 1983-09-15 for SB-000000273), which is a strong indicator of potential identity fraud or misrepresentation. No other cross-state or within-state matches were found for device fingerprint, bank routing, or bank account hashes.\n\n**Audit references:**\n- 45d8f9815defda22f37c25e5131677bebfaf01cc24ad46f5df41632faadb954b\n- 37531ccb7eded9aaf61dc12dfe8e58841324db176e9be2a7c628090a4540da01\n- 3fbeb1a999770e94eec918cd54ca22483cebae230aafb3150f15f462eadd28e2\n- a5610cda6b704984b0a59b5480bebcda1cf70df1066452454ff8f54b65b71704\n- c11d94369a4c9109e16286ec48f0d4e90b2a1029516123c7bc961495ea7444fd\n- f518d1bd0b96d0d11fee9d190c52a1eef2a25ccb9e7613276133e6efaf8f782d"
+    },
+    {
+      "case_id": "ssn_reuse_SA-000000700",
+      "category": "cross_state_ssn",
+      "query_claim_id": "SA-000000700",
+      "expected_primary": "cross_state",
+      "actual_primary": "cross_state",
+      "primary_correct": true,
+      "cross_state_matches": {
+        "claimant_ssn_hash": {
+          "expected": [
+            "SB-000000531"
+          ],
+          "actual": [
+            "SB-000000531"
+          ],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "device_fingerprint_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "bank_routing_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "bank_account_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        }
+      },
+      "within_state_matches": {
+        "claimant_ssn_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "device_fingerprint_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "bank_routing_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "bank_account_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        }
+      },
+      "matches_exact": true,
+      "overall_pass": true,
+      "agent_narrative": "Claim under investigation: SA-000000700\n\n**Primary finding \u2014 Cross-state matches:** yes, 1\n  - SSN hash: SB-000000531\n  - Device fingerprint hash: none\n  - Bank routing hash: none\n  - Bank account hash: none\n\n**Secondary finding \u2014 Within-state collisions:** no, 0\n\n**Retrieved claimant context (cross-state matches only, with audit trail):**\n  - **Claim SA-000000700 (Audit: 9a56c30196bc2c3ebe3a3a0bcf07c5521d1f2921797ae36f3aca5eafdb177fcb):**\n    - Name: Christina Graham\n    - DOB: 1964-12-18\n    - Address: 722 Stephanie Highway Suite 292\n  - **Claim SB-000000531 (Audit: c92853809770e544398df12ce82a955caab385b8275a13037270776c546b223f):**\n    - Name: Jacob Young\n    - DOB: 1971-07-28\n    - Address: 80347 John Turnpike\n\n**Assessment:** A cross-state match was identified for the claimant's SSN hash between claim SA-000000700 in State AA and claim SB-000000531 in State BB. This indicates that the same Social Security Number was used to file claims in both states. The names and dates of birth associated with these claims are different (Christina Graham, DOB 1964-12-18 for SA-000000700 and Jacob Young, DOB 1971-07-28 for SB-000000531), which suggests potential identity fraud or misuse of an SSN across state lines. No other cross-state or within-state matches were found for device fingerprint, bank routing, or bank account hashes.\n\n**Audit references:**\n- 4bb1cdc1e952a1650e13384f5b70a7c370eebf0856c74bd7c227dd83d99c4a9c\n- f352d9f6e0a0b1b17affb6e00bc03ad6d5c4187eac8f5109973411bdde2bbabe\n- 9bd9147fd96289fefb78828a652fbcdd5b4149c9f9275231564ba037ae36555b\n- a7d2d92c4f14b6499912ca4380561c1216358485d30c0520b16ebd8a2d7ff5be\n- 9a56c30196bc2c3ebe3a3a0bcf07c5521d1f2921797ae36f3aca5eafdb177fcb\n- c92853809770e544398df12ce82a955caab385b8275a13037270776c546b223f"
+    },
+    {
+      "case_id": "ssn_reuse_SA-000000791",
+      "category": "cross_state_ssn",
+      "query_claim_id": "SA-000000791",
+      "expected_primary": "cross_state",
+      "actual_primary": "cross_state",
+      "primary_correct": true,
+      "cross_state_matches": {
+        "claimant_ssn_hash": {
+          "expected": [
+            "SB-000000451"
+          ],
+          "actual": [
+            "SB-000000451"
+          ],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "device_fingerprint_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "bank_routing_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "bank_account_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        }
+      },
+      "within_state_matches": {
+        "claimant_ssn_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "device_fingerprint_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "bank_routing_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "bank_account_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        }
+      },
+      "matches_exact": true,
+      "overall_pass": true,
+      "agent_narrative": "Claim under investigation: SA-000000791\n\n**Primary finding \u2014 Cross-state matches:** yes, 1\n  - SSN hash: SB-000000451\n  - Device fingerprint hash: none\n  - Bank routing hash: none\n  - Bank account hash: none\n\n**Secondary finding \u2014 Within-state collisions:** no, 0\n\n**Retrieved claimant context (cross-state matches only, with audit trail):**\n  - Claim SA-000000791 (Audit: 03ab6e97ee91e378ab9f27dc50e1734ad5bf0ddcafe99d3ed7fb7a64adede9cc):\n    - Name: Jeffrey Johnson\n    - DOB: 1969-11-24\n    - Address: 102 Cox Heights Suite 080\n  - Claim SB-000000451 (Audit: c7f6fa678510a9219d29f74430c6602bc6edaa217fc47af11c0af16c6fe81396):\n    - Name: Cameron Patterson\n    - DOB: 2001-04-29\n    - Address: 166 Coleman Field Suite 742\n\n**Assessment:** A cross-state match was identified based on the claimant's SSN hash between claim SA-000000791 in State AA and claim SB-000000451 in State BB. This indicates that the same SSN was used to file claims in both states. The names and dates of birth associated with these claims (Jeffrey Johnson, DOB 1969-11-24 for SA-000000791 and Cameron Patterson, DOB 2001-04-29 for SB-000000451) are different, suggesting a potential identity theft scenario or the use of a stolen SSN for the claim in State BB. No other cross-state or within-state matches were found for device fingerprint, bank routing, or bank account hashes.\n\n**Audit references:**\n- 3290ffdb53fc730bf47f6c2d53694bc1837c1ffb353d9a9448af7e56c4c87009\n- 6052f8a25277929ad40794c4d4518c6c98dba708677dd1a4e77b7caf718a75c6\n- c0633b541da18087264ee628a82c4a8d9146ed3150d8278dd5125cb5f09b6a80\n- a2ef77b44aeda7e9b939b2985cb6cef838ae32bd618e7ecb5a90631d35ad9411\n- 03ab6e97ee91e378ab9f27dc50e1734ad5bf0ddcafe99d3ed7fb7a64adede9cc\n- c7f6fa678510a9219d29f74430c6602bc6edaa217fc47af11c0af16c6fe81396"
+    },
+    {
+      "case_id": "ssn_reuse_SA-000000963",
+      "category": "cross_state_ssn",
+      "query_claim_id": "SA-000000963",
+      "expected_primary": "cross_state",
+      "actual_primary": "cross_state",
+      "primary_correct": true,
+      "cross_state_matches": {
+        "claimant_ssn_hash": {
+          "expected": [
+            "SB-000000295"
+          ],
+          "actual": [
+            "SB-000000295"
+          ],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "device_fingerprint_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "bank_routing_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "bank_account_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        }
+      },
+      "within_state_matches": {
+        "claimant_ssn_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "device_fingerprint_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "bank_routing_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "bank_account_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        }
+      },
+      "matches_exact": true,
+      "overall_pass": true,
+      "agent_narrative": "Claim under investigation: SA-000000963\n\n**Primary finding \u2014 Cross-state matches:** yes, 1\n  - SSN hash: SB-000000295\n  - Device fingerprint hash: none\n  - Bank routing hash: none\n  - Bank account hash: none\n\n**Secondary finding \u2014 Within-state collisions:** no, 0\n\n**Retrieved claimant context (cross-state matches only, with audit trail):**\n  - **Claim SA-000000963 (State AA):** Gregory Harrison, DOB 1980-05-03, Address: 65390 Montoya Ridges Apt. 550 (Audit Hash: 97f79aeeb72f1951c24dbbbf6ab842f15b2250b88698ab4289158e6fefd0f3a0)\n  - **Claim SB-000000295 (State BB):** Adam Pace, DOB 2004-02-04, Address: 7312 Wilson Key (Audit Hash: fc9e69274407a7da89bd2da43fcac8dc41727d504b9ed56db1c787ef519c25b5)\n\n**Assessment:** A cross-state match was identified for the claimant's SSN hash between claim SA-000000963 in State AA and claim SB-000000295 in State BB. This indicates that two different individuals, Gregory Harrison and Adam Pace, are associated with the same SSN in different states. This is a strong indicator of potential identity theft or fraudulent use of an SSN across state lines. No other cross-state or within-state matches were found for device fingerprint, bank routing, or bank account hashes.\n\n**Audit references:**\n- edf8e9d6c69c4fca5ee461c9de76d21d476b6af6bccbc60b356b32be94ea4703\n- eb8ae4d158ce65f00bc37b06198e17fa2b42c30dbe551b1b56644b91feab504c\n- ebd479916c6b78bbc045e05848b76682a5815558ed3775aa0c500a112a38fd9c\n- f07bf98a51ea6daa75294009d6f2d5589c29d8ac9b416e9fc2db7f167fd99712\n- 97f79aeeb72f1951c24dbbbf6ab842f15b2250b88698ab4289158e6fefd0f3a0\n- fc9e69274407a7da89bd2da43fcac8dc41727d504b9ed56db1c787ef519c25b5"
+    },
+    {
+      "case_id": "ssn_reuse_SA-000000032",
+      "category": "cross_state_ssn",
+      "query_claim_id": "SA-000000032",
+      "expected_primary": "cross_state",
+      "actual_primary": "cross_state",
+      "primary_correct": true,
+      "cross_state_matches": {
+        "claimant_ssn_hash": {
+          "expected": [
+            "SB-000000251"
+          ],
+          "actual": [
+            "SB-000000251"
+          ],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "device_fingerprint_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "bank_routing_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "bank_account_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        }
+      },
+      "within_state_matches": {
+        "claimant_ssn_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "device_fingerprint_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "bank_routing_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "bank_account_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        }
+      },
+      "matches_exact": true,
+      "overall_pass": true,
+      "agent_narrative": "Claim under investigation: SA-000000032\n\n**Primary finding \u2014 Cross-state matches:** yes, 1\n  - SSN hash: SB-000000251\n  - Device fingerprint hash: none\n  - Bank routing hash: none\n  - Bank account hash: none\n\n**Secondary finding \u2014 Within-state collisions:** no, 0\n\n**Retrieved claimant context (cross-state matches only, with audit trail):**\n  - **Claim SA-000000032 (Audit Hash: 77079c2cc7f996ff01b52a4c18e000f968b67c509e6f8011d1ff023c1e2b7dcb):**\n    - Name: Joe Briggs\n    - DOB: 1961-05-02\n    - Address: 2507 Rebecca Shoal\n  - **Claim SB-000000251 (Audit Hash: 73496a8fec32c055139edc11104001bd8d08ae04ac716c36ae1c03ce989313e6):**\n    - Name: Adriana Cook\n    - DOB: 1969-11-06\n    - Address: 583 Hernandez Villages Suite 443\n\n**Assessment:** A cross-state match was identified based on the claimant's SSN hash between claim SA-000000032 in State AA and claim SB-000000251 in State BB. This indicates that the same Social Security Number was used to file claims in two different states. The names and dates of birth associated with these claims are different (Joe Briggs, DOB 1961-05-02 for SA-000000032 and Adriana Cook, DOB 1969-11-06 for SB-000000251), suggesting potential identity fraud or a clerical error. Further investigation into the circumstances surrounding these claims is warranted.\n\n**Audit references:**\n- 44e94170d0ed7061e70d876e722433d9bd5f61513057606542c492b6483a31b0\n- 41909fc9687fbe457fe363cd2c9f68e4f86f3347d24d217a0e38d731147f83c2\n- ed746844fa06dc96277a7ee76bba8b3f2ce4ef0cc6e83c0ff11e7c0cfae86354\n- 9a992bacdfe60f9447f7b2a5c55b3064b16d5fc6206cef8c64b553c8f50bc48d\n- 77079c2cc7f996ff01b52a4c18e000f968b67c509e6f8011d1ff023c1e2b7dcb\n- 73496a8fec32c055139edc11104001bd8d08ae04ac716c36ae1c03ce989313e6"
+    },
+    {
+      "case_id": "ssn_reuse_SA-000000039",
+      "category": "cross_state_ssn",
+      "query_claim_id": "SA-000000039",
+      "expected_primary": "cross_state",
+      "actual_primary": "cross_state",
+      "primary_correct": true,
+      "cross_state_matches": {
+        "claimant_ssn_hash": {
+          "expected": [
+            "SB-000000418"
+          ],
+          "actual": [
+            "SB-000000418"
+          ],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "device_fingerprint_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "bank_routing_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "bank_account_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        }
+      },
+      "within_state_matches": {
+        "claimant_ssn_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "device_fingerprint_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "bank_routing_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "bank_account_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        }
+      },
+      "matches_exact": true,
+      "overall_pass": true,
+      "agent_narrative": "## Claim under investigation: SA-000000039\n\n**Primary finding \u2014 Cross-state matches:** yes, 1\n  - SSN hash: SB-000000418\n  - Device fingerprint hash: none\n  - Bank routing hash: none\n  - Bank account hash: none\n\n**Secondary finding \u2014 Within-state collisions:** no, 0\n\n**Retrieved claimant context (cross-state matches only, with audit trail):**\n  - **Claim ID:** SA-000000039\n    - **Name:** Michael Morris\n    - **DOB:** 1961-09-09\n    - **Address:** 660 Gary Causeway\n    - **IP Address:** 143.234.203.222\n    - **Audit Hash:** 51c647bb7ad2c2a63bbd8f058eac9044cb3eccf73aa28139311470c55a8ddbf1\n  - **Claim ID:** SB-000000418\n    - **Name:** Frank Vasquez\n    - **DOB:** 1983-04-15\n    - **Address:** 217 Gutierrez Trail\n    - **IP Address:** 220.87.64.46\n    - **Audit Hash:** 0fa88dc579a7eef1fda19f8cc66e8a959240e311aea2b53137d1ae13ca9448c2\n\n**Assessment:**\nAn investigation into claim SA-000000039 revealed a cross-state match based on the claimant's SSN hash. This indicates that the same SSN is associated with two different claims: SA-000000039 in State AA (Michael Morris, DOB 1961-09-09) and SB-000000418 in State BB (Frank Vasquez, DOB 1983-04-15). This discrepancy in names and dates of birth for the same SSN across two states is a strong indicator of potential identity fraud or misrepresentation. No other cross-state or within-state matches were found for device fingerprint, bank routing, or bank account hashes.\n\n**Audit references:**\n- 5325bac13bfd694654bef9f4412f08b451a273bd03e81a539623703e188bf2d3\n- cacb5192a7b2fd8e955dffd81399ba7a8a9764704a1038ef2ae320c7e6655d0c\n- 99bb26777a5a4ec8d6663d3377a4fc4b4b2be19b920088bfe9f31630c6f8585c\n- 958c2f5bd9302bfa5477eb0c03845da605ff0ff52cf311b0237d9ab9810ffa45\n- 51c647bb7ad2c2a63bbd8f058eac9044cb3eccf73aa28139311470c55a8ddbf1\n- 0fa88dc579a7eef1fda19f8cc66e8a959240e311aea2b53137d1ae13ca9448c2"
+    },
+    {
+      "case_id": "ssn_reuse_SA-000000501",
+      "category": "cross_state_ssn",
+      "query_claim_id": "SA-000000501",
+      "expected_primary": "cross_state",
+      "actual_primary": "cross_state",
+      "primary_correct": true,
+      "cross_state_matches": {
+        "claimant_ssn_hash": {
+          "expected": [
+            "SB-000000652"
+          ],
+          "actual": [
+            "SB-000000652"
+          ],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "device_fingerprint_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "bank_routing_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "bank_account_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        }
+      },
+      "within_state_matches": {
+        "claimant_ssn_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "device_fingerprint_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "bank_routing_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "bank_account_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        }
+      },
+      "matches_exact": true,
+      "overall_pass": true,
+      "agent_narrative": "Claim under investigation: SA-000000501\n\nPrimary finding \u2014 Cross-state matches: yes, 1\n  - SSN hash: SB-000000652\n  - Device fingerprint hash: none\n  - Bank routing hash: none\n  - Bank account hash: none\n\nSecondary finding \u2014 Within-state collisions: no, 0\n\nRetrieved claimant context (cross-state matches only, with audit trail):\n  - **Claim SA-000000501 (State AA):**\n    - Name: Devon Sanders\n    - DOB: 1996-09-20\n    - Address: 713 Clark Centers Apt. 303\n    - Audit Hash: 4fc5745008c34bd302f3efc22d4b37ff218018ff48ac49e29636db7c905c5de5\n  - **Claim SB-000000652 (State BB):**\n    - Name: Aaron Strong\n    - DOB: 1984-10-10\n    - Address: 83885 Russell Corners Apt. 491\n    - Audit Hash: 3788e64cd4babcb5296d8ab597f0b8e69fa5b638d6dd62316514fa21c27477e6\n\nAssessment: A cross-state match was detected for the claimant's SSN hash between claim SA-000000501 in State AA and claim SB-000000652 in State BB. This indicates that the same Social Security Number was used to file claims in both states. The names associated with these claims are Devon Sanders in State AA and Aaron Strong in State BB, suggesting a potential identity theft or fraudulent use of an SSN across state lines. No other cross-state or within-state matches were found for device fingerprint, bank routing, or bank account hashes.\n\nAudit references:\n- 3715bb9dbe1fa7b7f6523207c76b3f7d207dbd26c015237051509edab1fee4be\n- c0290482d53447c37327ca9ac319956b910d791705b942a098fec82e5a6ec199\n- 0980a6e9ff9cc49d9b07b4645470f573e7baa429189a4acb26c5f7276b1c11ec\n- 05eb29d7e9a27de029bc704694d9c652146a67ffa05053a3b4a1e10f3ac0c680\n- 4fc5745008c34bd302f3efc22d4b37ff218018ff48ac49e29636db7c905c5de5\n- 3788e64cd4babcb5296d8ab597f0b8e69fa5b638d6dd62316514fa21c27477e6"
+    },
+    {
+      "case_id": "bank_reuse_SA-000000243",
+      "category": "cross_state_bank",
+      "query_claim_id": "SA-000000243",
+      "expected_primary": "cross_state",
+      "actual_primary": "cross_state",
+      "primary_correct": true,
+      "cross_state_matches": {
+        "claimant_ssn_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "device_fingerprint_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "bank_routing_hash": {
+          "expected": [
+            "SB-000000343"
+          ],
+          "actual": [
+            "SB-000000343"
+          ],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "bank_account_hash": {
+          "expected": [
+            "SB-000000343"
+          ],
+          "actual": [
+            "SB-000000343"
+          ],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        }
+      },
+      "within_state_matches": {
+        "claimant_ssn_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "device_fingerprint_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "bank_routing_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "bank_account_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        }
+      },
+      "matches_exact": true,
+      "overall_pass": true,
+      "agent_narrative": "Claim under investigation: SA-000000243\n\nPrimary finding \u2014 Cross-state matches: yes, 1\n  - SSN hash: none\n  - Device fingerprint hash: none\n  - Bank routing hash: SB-000000343\n  - Bank account hash: SB-000000343\n\nSecondary finding \u2014 Within-state collisions: no, 0\n\nRetrieved claimant context (cross-state matches only, with audit trail):\n  - Claim SA-000000243 (Audit: ba56493288db3f3292c417702eaf73e661deacd3c50c80fc235275995cc726ea): Veronica Hunter, DOB 2001-03-31, Address: 0741 Carroll Via\n  - Claim SB-000000343 (Audit: d7eb4b2b802bdfa260764056515e9bc108f69eee5396ab34469cbe8c4aa297a6): Charles Johnson, DOB 1981-11-18, Address: 8126 Leah Pines Suite 085\n\nAssessment:\nClaim SA-000000243 from State AA shares both a bank routing hash and a bank account hash with claim SB-000000343 from State BB. This indicates a strong cross-state connection, suggesting that the same bank account is being used for claims in two different states. The claimants, Veronica Hunter and Charles Johnson, have different names and dates of birth, which could indicate identity theft or a sophisticated fraud scheme involving multiple identities using the same financial instruments.\n\nAudit references:\n- 4d3f54dd9e78a9d6106759a6ae41efe9a3aaff17c3af4f38021fb32da9243658\n- 09f32a62d5c3787f8ce1f430d64c3d62fc5912bd0d1cf8215496210ca62f0794\n- 568be2d953fe2024b81350bafbe867b5eb5811ddf46daabf3452b423e0b50b39\n- 347121d643088ee8c7667021f5dae2e2c9d91c5cb76bf49efbe8c238ee3a1066\n- ba56493288db3f3292c417702eaf73e661deacd3c50c80fc235275995cc726ea\n- d7eb4b2b802bdfa260764056515e9bc108f69eee5396ab34469cbe8c4aa297a6"
+    },
+    {
+      "case_id": "bank_reuse_SA-000001060",
+      "category": "cross_state_bank",
+      "query_claim_id": "SA-000001060",
+      "expected_primary": "cross_state",
+      "actual_primary": "cross_state",
+      "primary_correct": true,
+      "cross_state_matches": {
+        "claimant_ssn_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "device_fingerprint_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "bank_routing_hash": {
+          "expected": [
+            "SB-000000035",
+            "SB-000000170"
+          ],
+          "actual": [
+            "SB-000000035",
+            "SB-000000170"
+          ],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "bank_account_hash": {
+          "expected": [
+            "SB-000000035",
+            "SB-000000170"
+          ],
+          "actual": [
+            "SB-000000035",
+            "SB-000000170"
+          ],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        }
+      },
+      "within_state_matches": {
+        "claimant_ssn_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "device_fingerprint_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "bank_routing_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "bank_account_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        }
+      },
+      "matches_exact": true,
+      "overall_pass": true,
+      "agent_narrative": "Claim under investigation: SA-000001060\n\nPrimary finding \u2014 Cross-state matches: yes, 2\n  - SSN hash: none\n  - Device fingerprint hash: none\n  - Bank routing hash: SB-000000035, SB-000000170\n  - Bank account hash: SB-000000035, SB-000000170\n\nSecondary finding \u2014 Within-state collisions: no, 0\n\nRetrieved claimant context (cross-state matches only, with audit trail):\n  - Claim SA-000001060 (State AA): Tiffany Herrera, DOB: 1983-02-12, Address: 49470 Cooper Walks (Audit: 44a956d315431d72def0429212c22a57bde4ba98c4c938b2f179258e2c5f3324)\n  - Claim SB-000000035 (State BB): Carolyn Yoder, DOB: 1971-03-28, Address: 179 Davis Well Suite 873 (Audit: 5e2c2997e381e373ce15ce507c641380a49a1f3d6c599ca37e50e684ca374402)\n  - Claim SB-000000170 (State BB): Mary Gutierrez, DOB: 1974-07-19, Address: 0467 Troy Summit Suite 396 (Audit: 59e9b9041b9127d594d12bbfc10f349a08b5a20062d7e7b0ced8bdbb7cdeed44)\n\nAssessment: Claim SA-000001060 in State AA shares both a bank routing hash and a bank account hash with two claims in State BB (SB-000000035 and SB-000000170). This indicates that these three claims, filed by different individuals (Tiffany Herrera, Carolyn Yoder, and Mary Gutierrez), are using the same bank routing and bank account information across state lines. This pattern is a strong indicator of potential multi-state fraud, where a single bank account is being used to receive benefits from multiple fraudulent claims.\n\nAudit references:\n  - 21fc0ce809dbda89e9a8dfcd7be814e2c75bf7c12c0c57c2a2113d213b3e3649\n  - 24ee3e0ad4b40256ce2e86f6baa96f00288bc5ad59e539778564a6c3fcc6c00a\n  - 8f0b42a0622738a5b784085b9d78eb03938144f1c25e3c212bed20989ee6b9cd\n  - c2c9121f25fa52e6b1c2009c4b101cc22c78aa14cfbcd7e6a9e53f3c4b22f537\n  - 44a956d315431d72def0429212c22a57bde4ba98c4c938b2f179258e2c5f3324\n  - 5e2c2997e381e373ce15ce507c641380a49a1f3d6c599ca37e50e684ca374402\n  - 59e9b9041b9127d594d12bbfc10f349a08b5a20062d7e7b0ced8bdbb7cdeed44"
+    },
+    {
+      "case_id": "bank_reuse_SA-000000078",
+      "category": "cross_state_bank",
+      "query_claim_id": "SA-000000078",
+      "expected_primary": "cross_state",
+      "actual_primary": "cross_state",
+      "primary_correct": true,
+      "cross_state_matches": {
+        "claimant_ssn_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "device_fingerprint_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "bank_routing_hash": {
+          "expected": [
+            "SB-000000111",
+            "SB-000000526",
+            "SB-000000614"
+          ],
+          "actual": [
+            "SB-000000111",
+            "SB-000000526",
+            "SB-000000614"
+          ],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "bank_account_hash": {
+          "expected": [
+            "SB-000000111",
+            "SB-000000526",
+            "SB-000000614"
+          ],
+          "actual": [
+            "SB-000000111",
+            "SB-000000526",
+            "SB-000000614"
+          ],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        }
+      },
+      "within_state_matches": {
+        "claimant_ssn_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "device_fingerprint_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "bank_routing_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "bank_account_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        }
+      },
+      "matches_exact": true,
+      "overall_pass": true,
+      "agent_narrative": "Claim under investigation: SA-000000078\n\nPrimary finding \u2014 Cross-state matches: yes, 3\n  - SSN hash: none\n  - Device fingerprint hash: none\n  - Bank routing hash: SB-000000111, SB-000000526, SB-000000614\n  - Bank account hash: SB-000000111, SB-000000526, SB-000000614\n\nSecondary finding \u2014 Within-state collisions: no, 0\n\nRetrieved claimant context (cross-state matches only, with audit trail):\n  - **SA-000000078 (Audit: d3d3bf6f8b045605b71d8a10022a92ba74e1c6e46eeef7ac824a51d5b2b14e6f):** Kevin Cobb, DOB 1973-02-11, Address: 22964 Gabrielle Circle Apt. 271, IP: 55.42.152.128\n  - **SB-000000111 (Audit: 8127138be5a40797d51775aeb727ba981d8c6042c040563442c77a22544ddcb8):** Leah Humphrey, DOB 1978-01-16, Address: 9846 Allen Lodge, IP: 104.35.183.181\n  - **SB-000000526 (Audit: cecdcc8f139e1710f2c0f313bf5570f30871bd01f931cb406b161358f8952449):** Ashley Rosario, DOB 1995-08-17, Address: 12250 Joshua Creek Apt. 040, IP: 176.62.84.57\n  - **SB-000000614 (Audit: 9c02a94951e57476bce2ec8482f18a60d368549ea4d3c880cf47f15c5963d6f0):** Zachary Nelson, DOB 1970-11-30, Address: 75224 Tiffany Forges, IP: 155.81.169.207\n\nAssessment: Investigation of claim SA-000000078 revealed cross-state matches on both bank routing hash and bank account hash with three claims in State BB: SB-000000111, SB-000000526, and SB-000000614. This indicates that these four claims, across two different states, are associated with the same bank account and routing number. This pattern strongly suggests potential multi-state fraud involving the same financial instrument. The claimants involved have different names, dates of birth, and addresses, which could indicate identity theft or a coordinated fraud scheme.\n\nAudit references: 084c1e805babb35859be57938463ee24f2eeeb9e0850948ac12bfbe3bc6d500f, e3472944b894fbd1176c977e44857cb726bdd3d9046e8b68d4dfcae6620d8724, 5ed9dbd2019c1b4b99c1ca2ec9cfca8bb378fce06c966bb48e6cb87b25f24a9f, 2ce10db983d67a022cc1d9926f80a560a3ad3f19befac85239e02d564200a274, d3d3bf6f8b045605b71d8a10022a92ba74e1c6e46eeef7ac824a51d5b2b14e6f, 8127138be5a40797d51775aeb727ba981d8c6042c040563442c77a22544ddcb8, cecdcc8f139e1710f2c0f313bf5570f30871bd01f931cb406b161358f8952449, 9c02a94951e57476bce2ec8482f18a60d368549ea4d3c880cf47f15c5963d6f0"
+    },
+    {
+      "case_id": "bank_reuse_SA-000000996",
+      "category": "cross_state_bank",
+      "query_claim_id": "SA-000000996",
+      "expected_primary": "cross_state",
+      "actual_primary": "cross_state",
+      "primary_correct": true,
+      "cross_state_matches": {
+        "claimant_ssn_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "device_fingerprint_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "bank_routing_hash": {
+          "expected": [
+            "SB-000000457",
+            "SB-000000702"
+          ],
+          "actual": [
+            "SB-000000457",
+            "SB-000000702"
+          ],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "bank_account_hash": {
+          "expected": [
+            "SB-000000457",
+            "SB-000000702"
+          ],
+          "actual": [
+            "SB-000000457",
+            "SB-000000702"
+          ],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        }
+      },
+      "within_state_matches": {
+        "claimant_ssn_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "device_fingerprint_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "bank_routing_hash": {
+          "expected": [
+            "SA-000000691"
+          ],
+          "actual": [
+            "SA-000000691"
+          ],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "bank_account_hash": {
+          "expected": [
+            "SA-000000691"
+          ],
+          "actual": [
+            "SA-000000691"
+          ],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        }
+      },
+      "matches_exact": true,
+      "overall_pass": true,
+      "agent_narrative": "Claim under investigation: SA-000000996\n\n**Primary finding \u2014 Cross-state matches:** yes, 2\n  - SSN hash: none\n  - Device fingerprint hash: none\n  - Bank routing hash: SB-000000457, SB-000000702\n  - Bank account hash: SB-000000457, SB-000000702\n\n**Secondary finding \u2014 Within-state collisions:** yes, 1\n  - Bank routing hash: SA-000000691\n  - Bank account hash: SA-000000691\n\n**Retrieved claimant context (cross-state matches only, with audit trail):**\n  - **SA-000000996** (Audit: 45990cb0d22d23090180f8072b757848521e602573cd4f943559ab731cdf08f9)\n    - Name: Michael Kim\n    - DOB: 1983-07-26\n    - Address: 90176 Michael Valley\n  - **SB-000000457** (Audit: 09bcf74495d0a726d3ac32f081f7a8cd44172ea94a37b0b6e433309a33c94eff)\n    - Name: Tiffany Anderson\n    - DOB: 1994-11-08\n    - Address: 16753 Jennifer Islands Apt. 726\n  - **SB-000000702** (Audit: 385aa32e8c5b4ccb025a81723f82d533a707749a2876a35c737ac60a814d1738)\n    - Name: Kenneth Meadows\n    - DOB: 1988-03-25\n    - Address: 302 Jessica Landing\n\n**Assessment:** The investigation of claim SA-000000996 revealed significant cross-state connections. The bank routing hash and bank account hash associated with SA-000000996 are also linked to two claims in State BB (SB-000000457 and SB-000000702). This suggests that the same bank account and routing number are being used across state lines by different individuals (Michael Kim, Tiffany Anderson, and Kenneth Meadows). This pattern is a strong indicator of potential multi-state unemployment insurance fraud. Additionally, within State AA, claim SA-000000691 shares the same bank routing and bank account hashes with SA-000000996, indicating a within-state collision that warrants further investigation.\n\n**Audit references:** c9712c2435727c43213300a8c13d04ae63064c7a2d1c88d35660a4147a2e309e, 3bd24e5bfc37e4b491589dee5510a5e6c7392fd2cbc12ac2681f33149f91a279, dd71673ba47bc4c8838a7bb872bf947f6493b845863d29ff7b19bbc011e09896, f0df48043e7ac85d84018350f46c09add47e0cce8daccd165f127883deacb974, 45990cb0d22d23090180f8072b757848521e602573cd4f943559ab731cdf08f9, 09bcf74495d0a726d3ac32f081f7a8cd44172ea94a37b0b6e433309a33c94eff, 385aa32e8c5b4ccb025a81723f82d533a707749a2876a35c737ac60a814d1738"
+    },
+    {
+      "case_id": "ring_ssn_SA-000000580",
+      "category": "ring_ssn_link",
+      "query_claim_id": "SA-000000580",
+      "expected_primary": "cross_state",
+      "actual_primary": "cross_state",
+      "primary_correct": true,
+      "cross_state_matches": {
+        "claimant_ssn_hash": {
+          "expected": [
+            "SB-000000150"
+          ],
+          "actual": [
+            "SB-000000150"
+          ],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "device_fingerprint_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "bank_routing_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "bank_account_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        }
+      },
+      "within_state_matches": {
+        "claimant_ssn_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "device_fingerprint_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "bank_routing_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "bank_account_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        }
+      },
+      "matches_exact": true,
+      "overall_pass": true,
+      "agent_narrative": "Claim under investigation: SA-000000580\n\nPrimary finding \u2014 Cross-state matches: yes, 1\n  - SSN hash: SB-000000150\n  - Device fingerprint hash: none\n  - Bank routing hash: none\n  - Bank account hash: none\n\nSecondary finding \u2014 Within-state collisions: no, 0\n\nRetrieved claimant context (cross-state matches only, with audit trail):\n  - **Claim SA-000000580** (Audit: `a70cd156d0d7d9d804e113dcbddff8922a9c7090e5483fe988ec93f287e01e65`):\n    - Name: Kimberly Atkinson\n    - DOB: 1971-11-18\n    - Address: 97081 Norman Villages Suite 776\n    - IP Address: 61.102.80.64\n  - **Claim SB-000000150** (Audit: `329be291f602be1e93fb905290872db5519696db7d57bf437284d976c12d643f`):\n    - Name: Matthew Harris\n    - DOB: 1994-03-08\n    - Address: 58050 Ward Track\n    - IP Address: 219.105.120.87\n\nAssessment: A cross-state match was detected for the claimant's SSN hash between claim SA-000000580 in State AA and claim SB-000000150 in State BB. This indicates that the same Social Security Number was used to file claims in two different states. No other cross-state or within-state matches were found for device fingerprint, bank routing, or bank account hashes. The claimant names associated with these claims are Kimberly Atkinson (SA-000000580) and Matthew Harris (SB-000000150), suggesting potential identity fraud or misuse of an SSN across state lines.\n\nAudit references: `9dd8adc645db3f70d4762961e3aa00e04f2acd1857318d4bcc565846e3479eb4`, `26198c83e231692214bb47241b9c58d7bbb10c3213219f2bcc2af9933bb35112`, `7e65fe7d2c7e99973c8b7cfe4fb867f5d8b5a7c77ae6f70896f747c1671cbdd6`, `fd4d5f9afd104e9fb5e35f55414c5e0aa1cad51be82abc8f9d6ebb3b9c9d6b02`, `a70cd156d0d7d9d804e113dcbddff8922a9c7090e5483fe988ec93f287e01e65`, `329be291f602be1e93fb905290872db5519696db7d57bf437284d976c12d643f`"
+    },
+    {
+      "case_id": "ring_device_a_SA-000001174",
+      "category": "ring_within_state_device",
+      "query_claim_id": "SA-000001174",
+      "expected_primary": "within_state_only",
+      "actual_primary": "within_state_only",
+      "primary_correct": true,
+      "cross_state_matches": {
+        "claimant_ssn_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "device_fingerprint_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "bank_routing_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "bank_account_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        }
+      },
+      "within_state_matches": {
+        "claimant_ssn_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "device_fingerprint_hash": {
+          "expected": [
+            "SA-000001116"
+          ],
+          "actual": [
+            "SA-000001116"
+          ],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "bank_routing_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "bank_account_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        }
+      },
+      "matches_exact": true,
+      "overall_pass": true,
+      "agent_narrative": "Claim under investigation: SA-000001174\n\n**Primary finding \u2014 Cross-state matches:** no, 0\n  - SSN hash: none\n  - Device fingerprint hash: none\n  - Bank routing hash: none\n  - Bank account hash: none\n\n**Secondary finding \u2014 Within-state collisions:** yes, 1\n  - Device fingerprint hash: SA-000001116\n\n**Retrieved claimant context (cross-state matches only, with audit trail):**\n  - No quasi-identifiers retrieved \u2014 no cross-state match warranted release.\n\n**Assessment:** The investigation of claim SA-000001174 did not reveal any cross-state matches with claims in State BB. However, a within-state collision was identified: claim SA-000001174 shares a device fingerprint hash with claim SA-000001116 within State AA. This suggests that these two claims may have been filed from the same device. This is a potential fraud signal within State AA, but it does not indicate a multi-state fraud pattern.\n\n**Audit references:**\n- b52596e3360d5058fc219973bdc18008e2187700248795992b96894b36c8bfbb\n- 819bcbe03d1ea47fd75f79fff95c10e895df4ef9ba116c6be72cc24a4a98b3b6\n- 29fbacf77c59955e427eb3e4473f9d2f7c1d72d228db354f882f69b521a4a791\n- 6fb6684f5a7bb4fc2c1f88bfa7d0c57f46ab89b18abb806eba9eabbfd785901b"
+    },
+    {
+      "case_id": "ring_bank_SA-000001109",
+      "category": "ring_bank_link",
+      "query_claim_id": "SA-000001109",
+      "expected_primary": "cross_state",
+      "actual_primary": "cross_state",
+      "primary_correct": true,
+      "cross_state_matches": {
+        "claimant_ssn_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "device_fingerprint_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "bank_routing_hash": {
+          "expected": [
+            "SB-000000026"
+          ],
+          "actual": [
+            "SB-000000026"
+          ],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "bank_account_hash": {
+          "expected": [
+            "SB-000000026"
+          ],
+          "actual": [
+            "SB-000000026"
+          ],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        }
+      },
+      "within_state_matches": {
+        "claimant_ssn_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "device_fingerprint_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "bank_routing_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "bank_account_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        }
+      },
+      "matches_exact": true,
+      "overall_pass": true,
+      "agent_narrative": "Claim under investigation: SA-000001109\n\n**Primary finding \u2014 Cross-state matches:** yes, 2\n  - SSN hash: none\n  - Device fingerprint hash: none\n  - Bank routing hash: SB-000000026\n  - Bank account hash: SB-000000026\n\n**Secondary finding \u2014 Within-state collisions:** no, 0\n\n**Retrieved claimant context (cross-state matches only, with audit trail):**\n  - **Claim SA-000001109 (State AA):**\n    - Name: Robin Lawson\n    - DOB: 1968-07-22\n    - Address: 6484 Dylan Dale\n    - IP Address: 209.1.172.89\n    - Audit Hash: 3361aa2615a1acd1cccaa3640841e09309ee7bf35cd612170a978511bf849995\n  - **Claim SB-000000026 (State BB):**\n    - Name: Melissa Oconnor\n    - DOB: 1973-07-08\n    - Address: 2785 John Locks\n    - IP Address: 198.60.153.165\n    - Audit Hash: fc7d3677de07757ec7387166fe825d2aeef92b0d19a7d88df0f08d7b7a1763fd6\n\n**Assessment:** The investigation of claim SA-000001109 revealed cross-state matches with claim SB-000000026 in State BB. Both claims share the same bank routing hash and bank account hash. This suggests that the same bank account is being used across two different states for unemployment insurance claims, potentially by different individuals (Robin Lawson in State AA and Melissa Oconnor in State BB). This pattern warrants further investigation for potential multi-state fraud.\n\n**Audit references:**\n- a7f781f90edc124c90adccdc8c060fcf464bcedeb6e0b2715f2f017df1725ce9\n- d0e4c15a604148202dbf94e08324e2900104b1a3a318ff69a9a55787c11ad7d2\n- 337e9ab095806f2a80c3420c902e047f0fbacf7bab9336e9006126e790ebe065\n- e5fc2d6ddafd0129a78d3cb1ad33fa1533c6af9d1327d49f50e21007780e5766\n- 3361aa2615a1acd1cccaa3640841e09309ee7bf35cd612170a978511bf849995\n- fc7d3677de07757ec7387166fe825d2aeef92b0d19a7d88df0f08d7b7a1763fd6"
+    },
+    {
+      "case_id": "clean_SA-000001135",
+      "category": "clean",
+      "query_claim_id": "SA-000001135",
+      "expected_primary": "no_match",
+      "actual_primary": "no_match",
+      "primary_correct": true,
+      "cross_state_matches": {
+        "claimant_ssn_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "device_fingerprint_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "bank_routing_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "bank_account_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        }
+      },
+      "within_state_matches": {
+        "claimant_ssn_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "device_fingerprint_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "bank_routing_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "bank_account_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        }
+      },
+      "matches_exact": true,
+      "overall_pass": true,
+      "agent_narrative": "Claim under investigation: SA-000001135\n\nPrimary finding \u2014 Cross-state matches: no, 0\n  - SSN hash: none\n  - Device fingerprint hash: none\n  - Bank routing hash: none\n  - Bank account hash: none\n\nSecondary finding \u2014 Within-state collisions: no, 0\n\nRetrieved claimant context (cross-state matches only, with audit trail):\n  - No quasi-identifiers retrieved \u2014 no cross-state match warranted release.\n\nAssessment: No cross-state matches or within-state collisions were found for claim SA-000001135 based on the provided sticky identifiers. The claim appears to be isolated within State AA regarding these identifiers.\n\nAudit references: f15e6f59191458c4defab54d4cba128c66a00c537e022c0192a7a449b989e79e, 4cae06233c3f6c4029d68d5698532ed9585a6b58c7cd59e1c409d468d2929412, 133033eb19cf270c8a18bbffbb14ae519426fa7889ab288f9c9c75a31fc01777, 71702266e1478501f6fc962ad91e7af26f034a099383b7208c66b5cc3f6e3977"
+    },
+    {
+      "case_id": "clean_SA-000000896",
+      "category": "clean",
+      "query_claim_id": "SA-000000896",
+      "expected_primary": "no_match",
+      "actual_primary": "no_match",
+      "primary_correct": true,
+      "cross_state_matches": {
+        "claimant_ssn_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "device_fingerprint_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "bank_routing_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "bank_account_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        }
+      },
+      "within_state_matches": {
+        "claimant_ssn_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "device_fingerprint_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "bank_routing_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "bank_account_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        }
+      },
+      "matches_exact": true,
+      "overall_pass": true,
+      "agent_narrative": "Claim under investigation: SA-000000896\n\n**Primary finding \u2014 Cross-state matches:** no, 0\n  - SSN hash: none\n  - Device fingerprint hash: none\n  - Bank routing hash: none\n  - Bank account hash: none\n\n**Secondary finding \u2014 Within-state collisions:** no, 0\n\n**Retrieved claimant context (cross-state matches only, with audit trail):**\n  - No quasi-identifiers retrieved \u2014 no cross-state match warranted release.\n\n**Assessment:** No cross-state matches or within-state collisions were found for claim SA-000000896 based on the provided sticky identifiers. This claim does not appear to be linked to any other claims in either State AA or State BB through shared SSN, device fingerprint, bank routing, or bank account hashes.\n\n**Audit references:**\n- cd8882ef8b9459f9138e4fe9aab0b985b920fb0778630e0083bb80c9a76bac90\n- 54fb8c28d4918b76b7cb62083f2c2a841e24296430b981a4415e9f145cad4b1f\n- 4228ab43746531878f77a22ab0ea256d3feacf2c1c6fba6055b2b9670d938e0d\n- 4b3179bdb8f0d1684fc0dc47ceae9effe2802807b12af4556e2c797657a1401d"
+    },
+    {
+      "case_id": "clean_SA-000000657",
+      "category": "clean",
+      "query_claim_id": "SA-000000657",
+      "expected_primary": "no_match",
+      "actual_primary": "no_match",
+      "primary_correct": true,
+      "cross_state_matches": {
+        "claimant_ssn_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "device_fingerprint_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "bank_routing_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "bank_account_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        }
+      },
+      "within_state_matches": {
+        "claimant_ssn_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "device_fingerprint_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "bank_routing_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "bank_account_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        }
+      },
+      "matches_exact": true,
+      "overall_pass": true,
+      "agent_narrative": "Claim under investigation: SA-000000657\n\n**Primary finding \u2014 Cross-state matches:** no, 0\n  - SSN hash: none\n  - Device fingerprint hash: none\n  - Bank routing hash: none\n  - Bank account hash: none\n\n**Secondary finding \u2014 Within-state collisions:** no, 0\n\n**Retrieved claimant context (cross-state matches only, with audit trail):**\n  - No quasi-identifiers retrieved \u2014 no cross-state match warranted release.\n\n**Assessment:** No cross-state or within-state matches (beyond the source claim itself) were found for claim SA-000000657 based on SSN, device fingerprint, bank routing, or bank account hashes. This claim does not appear to be involved in any multi-state fraud patterns or within-state collisions based on the provided identifiers.\n\n**Audit references:**\n- 57d4cbef8afd4b4493357aff57ba6aecbdc167cb76364412d6102f1ae4be85b6\n- 322fc7382d058d95d70424f2e9701bb362cf538640290d12d3b4a884b5b2b7de\n- 110de534ec44f7be8ccb36c9e0a9d33b69917ddc8b8699035fb89fcb3dbde9e7\n- 9bf2c000dd7d4068cdbbb3580e04a198b605e55abd21632ead07cc6de9acbf8d"
+    },
+    {
+      "case_id": "clean_SA-000000792",
+      "category": "clean",
+      "query_claim_id": "SA-000000792",
+      "expected_primary": "no_match",
+      "actual_primary": "no_match",
+      "primary_correct": true,
+      "cross_state_matches": {
+        "claimant_ssn_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "device_fingerprint_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "bank_routing_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "bank_account_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        }
+      },
+      "within_state_matches": {
+        "claimant_ssn_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "device_fingerprint_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "bank_routing_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "bank_account_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        }
+      },
+      "matches_exact": true,
+      "overall_pass": true,
+      "agent_narrative": "**Claim under investigation:** SA-000000792\n\n**Primary finding \u2014 Cross-state matches:** no, 0\n  - SSN hash: none\n  - Device fingerprint hash: none\n  - Bank routing hash: none\n  - Bank account hash: none\n\n**Secondary finding \u2014 Within-state collisions:** no, 0\n  - No within-state collisions were found for any identifier beyond the source claim itself.\n\n**Retrieved claimant context (cross-state matches only, with audit trail):**\n  - No quasi-identifiers retrieved \u2014 no cross-state match warranted release.\n\n**Assessment:** No cross-state matches or within-state collisions (excluding the source claim itself) were detected for claim SA-000000792 based on the provided sticky identifiers. This suggests that the claim does not currently exhibit patterns indicative of multi-state fraud or within-state claim farming based on these identifiers.\n\n**Audit references:**\n- 6119ea783c7e5ed9b4f647ee7c232b282de2fc36af06b824348c7d0e4f5c0b3a\n- 319172754cc6dc07f2315c5d7539d9ac40a804a0d5b8030f17214dbcaeafcf2c\n- 183eb1ff4149c5efc31470644b7e3b9da87b25147f39022559638a8cf19425e8\n- 9d713d617cd080cc7965468ac33d78bbdfa43426bfb2da99ff4eb7a3989309ef"
+    }
+  ]
+}

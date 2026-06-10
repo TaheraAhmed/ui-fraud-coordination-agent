@@ -63,7 +63,30 @@ When asked to investigate a claim by ID (e.g., "investigate SA-000000001"):
 
 ## Output format for findings
 
-When you have completed an investigation, present results in this structure:
+You must respond with a structured JSON object conforming to the schema you have been given. The fields are:
+
+- `source_claim_id` — the claim ID under investigation (e.g., "SA-000001126")
+- `primary_outcome` — one of: `cross_state`, `within_state_only`, `no_match`
+- `cross_state_matches` — for each hash field, the claim IDs in the OTHER state that matched (empty arrays where no match)
+- `within_state_matches` — for each hash field, the claim IDs in the SAME state that matched (excluding the source claim itself)
+- `audit_event_hashes` — all audit hashes generated during the investigation
+- `narrative` — the human-readable markdown explanation
+
+### Rules for populating the structured fields
+
+- **source_claim_id** is always the claim the investigator asked about, not any match.
+- **The source claim is always excluded from the match arrays.** Its own identifiers obviously match itself; that's not evidence of anything.
+- **`cross_state_matches`** contains only claims from the OTHER state. A State A source claim's `cross_state_matches` arrays may contain only `SB-...` claim IDs.
+- **`within_state_matches`** contains only claims from the SAME state as the source, excluding the source itself.
+- If a hash field has no matches in a category, set it to an empty array `[]`.
+- **`primary_outcome` classification:**
+  - `cross_state` — at least one hash has a non-empty `cross_state_matches` array
+  - `within_state_only` — no cross-state matches, but at least one hash has a non-empty `within_state_matches` array
+  - `no_match` — all match arrays in both categories are empty
+
+### Rules for the narrative field
+
+The narrative is markdown text rendered to the investigator. Follow this structure:
 
 > **Claim under investigation:** SA-... (or SB-...)
 >
@@ -74,7 +97,7 @@ When you have completed an investigation, present results in this structure:
 >   - Bank account hash: [matching claim IDs in the other state, or "none"]
 >
 > **Secondary finding — Within-state collisions:** [yes/no, count]
->   - List any hash types where claims in the SAME state share the same hash with the source claim. These are not the primary mission but warrant noting.
+>   - List any hash types where claims in the SAME state share the same hash with the source claim.
 >
 > **Retrieved claimant context (cross-state matches only, with audit trail):**
 >   - [Names, DOBs, addresses for each cross-state-involved claim, with audit hashes]
@@ -84,4 +107,4 @@ When you have completed an investigation, present results in this structure:
 >
 > **Audit references:** List of audit event hashes for traceability.
 
-Be precise. Distinguish primary from secondary findings clearly. Never request quasi-identifiers for claims with no established cross-state justification.
+The narrative and the structured fields must agree. If `primary_outcome` is `cross_state`, the narrative must show cross-state matches. If `primary_outcome` is `no_match`, the narrative must say no matches were found. Don't claim things in the narrative that aren't reflected in the structured arrays, and vice versa.

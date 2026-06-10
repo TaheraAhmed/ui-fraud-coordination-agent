@@ -49,10 +49,15 @@ def _search_legacy_by_hash(identifier_type: str, hash_value: str) -> list[dict]:
     return [r for r in records if r.get(identifier_type) == hash_value]
 
 
+_mongo_client: MongoClient | None = None
+
+
 def _get_federation_matches_collection():
-    uri = os.environ.get("MONGODB_URI")
-    client = MongoClient(uri)
-    return client[DATABASE_NAME][FEDERATION_MATCHES_COLLECTION]
+    global _mongo_client
+    if _mongo_client is None:
+        uri = os.environ.get("MONGODB_URI")
+        _mongo_client = MongoClient(uri)
+    return _mongo_client[DATABASE_NAME][FEDERATION_MATCHES_COLLECTION]
 
 
 def query_federation(

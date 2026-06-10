@@ -31,13 +31,18 @@ DATABASE_NAME = "ui_fraud_coordination"
 STATE_B_COLLECTION = "state_b_claims"
 
 
+_mongo_client: MongoClient | None = None
+
+
 def _get_collection():
-    """Return the State B claims collection."""
-    uri = os.environ.get("MONGODB_URI")
-    if not uri:
-        raise RuntimeError("MONGODB_URI not set in .env")
-    client = MongoClient(uri)
-    return client[DATABASE_NAME][STATE_B_COLLECTION]
+    """Return the State B claims collection. Uses a shared client."""
+    global _mongo_client
+    if _mongo_client is None:
+        uri = os.environ.get("MONGODB_URI")
+        if not uri:
+            raise RuntimeError("MONGODB_URI not set in .env")
+        _mongo_client = MongoClient(uri)
+    return _mongo_client[DATABASE_NAME][STATE_B_COLLECTION]
 
 
 def read_modern_source(

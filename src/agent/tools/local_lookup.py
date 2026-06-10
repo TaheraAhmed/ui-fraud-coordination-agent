@@ -45,10 +45,17 @@ QUASI_IDENTIFIER_FIELDS: Final[tuple[str, ...]] = (
 )
 
 
+_mongo_client: MongoClient | None = None
+
+
 def _get_state_b_collection():
-    uri = os.environ.get("MONGODB_URI")
-    client = MongoClient(uri)
-    return client[DATABASE_NAME][STATE_B_COLLECTION]
+    global _mongo_client
+    if _mongo_client is None:
+        uri = os.environ.get("MONGODB_URI")
+        if not uri:
+            raise RuntimeError("MONGODB_URI not set in .env")
+        _mongo_client = MongoClient(uri)
+    return _mongo_client[DATABASE_NAME][STATE_B_COLLECTION]
 
 
 def _lookup_state_a_claim(claim_id: str) -> dict | None:

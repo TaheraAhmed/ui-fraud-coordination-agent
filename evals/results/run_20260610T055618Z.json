@@ -1,0 +1,96 @@
+{
+  "timestamp_utc": "20260610T055618Z",
+  "summary": {
+    "total_cases": 1,
+    "overall_pass": 1,
+    "overall_pass_rate": 1.0,
+    "primary_correct": 1,
+    "primary_accuracy": 1.0,
+    "by_category": {
+      "cross_state_ssn": {
+        "total": 1,
+        "passing": 1,
+        "primary_correct": 1,
+        "pass_rate": 1.0,
+        "primary_accuracy": 1.0
+      }
+    }
+  },
+  "case_results": [
+    {
+      "case_id": "ssn_reuse_SA-000001126",
+      "category": "cross_state_ssn",
+      "query_claim_id": "SA-000001126",
+      "expected_primary": "cross_state",
+      "actual_primary": "cross_state",
+      "primary_correct": true,
+      "cross_state_matches": {
+        "claimant_ssn_hash": {
+          "expected": [
+            "SB-000000692"
+          ],
+          "actual": [
+            "SB-000000692"
+          ],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "device_fingerprint_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "bank_routing_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "bank_account_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        }
+      },
+      "within_state_matches": {
+        "claimant_ssn_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "device_fingerprint_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "bank_routing_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "bank_account_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        }
+      },
+      "matches_exact": true,
+      "overall_pass": true,
+      "agent_narrative": "Claim under investigation: SA-000001126\n\n**Primary finding \u2014 Cross-state matches:** yes, 1\n  - SSN hash: SB-000000692\n  - Device fingerprint hash: none\n  - Bank routing hash: none\n  - Bank account hash: none\n\n**Secondary finding \u2014 Within-state collisions:** no, 0\n\n**Retrieved claimant context (cross-state matches only, with audit trail):**\n  - Claim SA-000001126 (Audit Hash: cebb931ea1e06c592d8b6aedeeb1f37a395043ade677884b05077464be6cbab3):\n    - Name: Jennifer Bailey\n    - DOB: 2000-09-05\n    - Address: 92818 Williams Ramp\n  - Claim SB-000000692 (Audit Hash: 8b1abfc93413f8acfcb9cec9491d1949991d561a198c4ec3ccf04cd68ba20a3a):\n    - Name: Dylan Simmons\n    - DOB: 1966-08-18\n    - Address: 53439 Andrews Mountain\n\n**Assessment:** A cross-state match was detected for claim SA-000001126. The claimant SSN hash for SA-000001126 matches that of claim SB-000000692 in State BB. This indicates that the same Social Security Number is associated with claims in two different states. The names and dates of birth for the claimants are different, suggesting a potential identity theft scenario or an attempt to file multiple claims using the same SSN with different personal details. No other cross-state or within-state matches were found for device fingerprint, bank routing, or bank account hashes.\n\n**Audit references:**\n- 3482624f0c20a8158c908e99bea25225b5eb5a4b6aeb839027a2cafbe8933932\n- 0893c15167961439ecfe680c2a965db0278d0a73fec79b2df55d34fc475a8094\n- 61c6e2add5e0eeaaf08a5302e9000123ac49503996e8f3a786424c50da0d132a\n- d5e5ad38d909d1a4800280315590226ee758c827a7e351114d2239b9f2571684\n- cebb931ea1e06c592d8b6aedeeb1f37a395043ade677884b05077464be6cbab3\n- 8b1abfc93413f8acfcb9cec9491d1949991d561a198c4ec3ccf04cd68ba20a3a"
+    }
+  ]
+}

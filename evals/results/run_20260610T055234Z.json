@@ -1,0 +1,96 @@
+{
+  "timestamp_utc": "20260610T055234Z",
+  "summary": {
+    "total_cases": 1,
+    "overall_pass": 0,
+    "overall_pass_rate": 0.0,
+    "primary_correct": 0,
+    "primary_accuracy": 0.0,
+    "by_category": {
+      "cross_state_ssn": {
+        "total": 1,
+        "passing": 0,
+        "primary_correct": 0,
+        "pass_rate": 0.0,
+        "primary_accuracy": 0.0
+      }
+    }
+  },
+  "case_results": [
+    {
+      "case_id": "ssn_reuse_SA-000001126",
+      "category": "cross_state_ssn",
+      "query_claim_id": "SA-000001126",
+      "expected_primary": "cross_state",
+      "actual_primary": "no_match",
+      "primary_correct": false,
+      "cross_state_matches": {
+        "claimant_ssn_hash": {
+          "expected": [
+            "SB-000000692"
+          ],
+          "actual": [],
+          "missed": [
+            "SB-000000692"
+          ],
+          "false_positive": [],
+          "exact_match": false
+        },
+        "device_fingerprint_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "bank_routing_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "bank_account_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        }
+      },
+      "within_state_matches": {
+        "claimant_ssn_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "device_fingerprint_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "bank_routing_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "bank_account_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        }
+      },
+      "matches_exact": false,
+      "overall_pass": false,
+      "agent_narrative": "## Investigation of Claim SA-000001126\n\n**Status:** Investigation Incomplete - Technical Error\n\nThis investigation could not be completed due to a technical error encountered while querying the federation for potential matches. All attempts to query the federation resulted in a `ServerSelectionTimeoutError` indicating an SSL handshake failure with the database. \n\nConsequently, no match data (cross-state or within-state) could be retrieved, and no audit event hashes were generated for the federation queries. Therefore, no findings regarding cross-state unemployment insurance fraud can be reported at this time.\n\n**Next Steps:** The technical issue preventing federation queries needs to be resolved before this claim can be properly investigated."
+    }
+  ]
+}

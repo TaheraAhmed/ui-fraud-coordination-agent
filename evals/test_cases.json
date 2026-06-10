@@ -1,0 +1,274 @@
+{
+  "total": 19,
+  "by_category": {
+    "cross_state_ssn": 8,
+    "cross_state_bank": 4,
+    "ring_ssn_link": 1,
+    "ring_within_state_device": 1,
+    "ring_bank_link": 1,
+    "clean": 4
+  },
+  "cases": [
+    {
+      "case_id": "ssn_reuse_SA-000001126",
+      "category": "cross_state_ssn",
+      "query_claim_id": "SA-000001126",
+      "expected_primary": "cross_state",
+      "expected_cross_state_matches": {
+        "claimant_ssn_hash": [
+          "SB-000000692"
+        ]
+      },
+      "expected_within_state_matches": {},
+      "notes": "Seeded SSN reuse pair; agent should find cross-state SSN match."
+    },
+    {
+      "case_id": "ssn_reuse_SA-000000892",
+      "category": "cross_state_ssn",
+      "query_claim_id": "SA-000000892",
+      "expected_primary": "cross_state",
+      "expected_cross_state_matches": {
+        "claimant_ssn_hash": [
+          "SB-000000273"
+        ]
+      },
+      "expected_within_state_matches": {},
+      "notes": "Seeded SSN reuse pair; agent should find cross-state SSN match."
+    },
+    {
+      "case_id": "ssn_reuse_SA-000000700",
+      "category": "cross_state_ssn",
+      "query_claim_id": "SA-000000700",
+      "expected_primary": "cross_state",
+      "expected_cross_state_matches": {
+        "claimant_ssn_hash": [
+          "SB-000000531"
+        ]
+      },
+      "expected_within_state_matches": {},
+      "notes": "Seeded SSN reuse pair; agent should find cross-state SSN match."
+    },
+    {
+      "case_id": "ssn_reuse_SA-000000791",
+      "category": "cross_state_ssn",
+      "query_claim_id": "SA-000000791",
+      "expected_primary": "cross_state",
+      "expected_cross_state_matches": {
+        "claimant_ssn_hash": [
+          "SB-000000451"
+        ]
+      },
+      "expected_within_state_matches": {},
+      "notes": "Seeded SSN reuse pair; agent should find cross-state SSN match."
+    },
+    {
+      "case_id": "ssn_reuse_SA-000000963",
+      "category": "cross_state_ssn",
+      "query_claim_id": "SA-000000963",
+      "expected_primary": "cross_state",
+      "expected_cross_state_matches": {
+        "claimant_ssn_hash": [
+          "SB-000000295"
+        ]
+      },
+      "expected_within_state_matches": {},
+      "notes": "Seeded SSN reuse pair; agent should find cross-state SSN match."
+    },
+    {
+      "case_id": "ssn_reuse_SA-000000032",
+      "category": "cross_state_ssn",
+      "query_claim_id": "SA-000000032",
+      "expected_primary": "cross_state",
+      "expected_cross_state_matches": {
+        "claimant_ssn_hash": [
+          "SB-000000251"
+        ]
+      },
+      "expected_within_state_matches": {},
+      "notes": "Seeded SSN reuse pair; agent should find cross-state SSN match."
+    },
+    {
+      "case_id": "ssn_reuse_SA-000000039",
+      "category": "cross_state_ssn",
+      "query_claim_id": "SA-000000039",
+      "expected_primary": "cross_state",
+      "expected_cross_state_matches": {
+        "claimant_ssn_hash": [
+          "SB-000000418"
+        ]
+      },
+      "expected_within_state_matches": {},
+      "notes": "Seeded SSN reuse pair; agent should find cross-state SSN match."
+    },
+    {
+      "case_id": "ssn_reuse_SA-000000501",
+      "category": "cross_state_ssn",
+      "query_claim_id": "SA-000000501",
+      "expected_primary": "cross_state",
+      "expected_cross_state_matches": {
+        "claimant_ssn_hash": [
+          "SB-000000652"
+        ]
+      },
+      "expected_within_state_matches": {},
+      "notes": "Seeded SSN reuse pair; agent should find cross-state SSN match."
+    },
+    {
+      "case_id": "bank_reuse_SA-000000243",
+      "category": "cross_state_bank",
+      "query_claim_id": "SA-000000243",
+      "expected_primary": "cross_state",
+      "expected_cross_state_matches": {
+        "bank_routing_hash": [
+          "SB-000000343"
+        ],
+        "bank_account_hash": [
+          "SB-000000343"
+        ]
+      },
+      "expected_within_state_matches": {},
+      "notes": "Seeded bank reuse with cross-state membership; agent should find cross-state bank match."
+    },
+    {
+      "case_id": "bank_reuse_SA-000001060",
+      "category": "cross_state_bank",
+      "query_claim_id": "SA-000001060",
+      "expected_primary": "cross_state",
+      "expected_cross_state_matches": {
+        "bank_routing_hash": [
+          "SB-000000035",
+          "SB-000000170"
+        ],
+        "bank_account_hash": [
+          "SB-000000035",
+          "SB-000000170"
+        ]
+      },
+      "expected_within_state_matches": {},
+      "notes": "Seeded bank reuse with cross-state membership; agent should find cross-state bank match."
+    },
+    {
+      "case_id": "bank_reuse_SA-000000078",
+      "category": "cross_state_bank",
+      "query_claim_id": "SA-000000078",
+      "expected_primary": "cross_state",
+      "expected_cross_state_matches": {
+        "bank_routing_hash": [
+          "SB-000000111",
+          "SB-000000526",
+          "SB-000000614"
+        ],
+        "bank_account_hash": [
+          "SB-000000111",
+          "SB-000000526",
+          "SB-000000614"
+        ]
+      },
+      "expected_within_state_matches": {},
+      "notes": "Seeded bank reuse with cross-state membership; agent should find cross-state bank match."
+    },
+    {
+      "case_id": "bank_reuse_SA-000000996",
+      "category": "cross_state_bank",
+      "query_claim_id": "SA-000000996",
+      "expected_primary": "cross_state",
+      "expected_cross_state_matches": {
+        "bank_routing_hash": [
+          "SB-000000457",
+          "SB-000000702"
+        ],
+        "bank_account_hash": [
+          "SB-000000457",
+          "SB-000000702"
+        ]
+      },
+      "expected_within_state_matches": {
+        "bank_routing_hash": [
+          "SA-000000691"
+        ],
+        "bank_account_hash": [
+          "SA-000000691"
+        ]
+      },
+      "notes": "Seeded bank reuse with cross-state membership; agent should find cross-state bank match."
+    },
+    {
+      "case_id": "ring_ssn_SA-000000580",
+      "category": "ring_ssn_link",
+      "query_claim_id": "SA-000000580",
+      "expected_primary": "cross_state",
+      "expected_cross_state_matches": {
+        "claimant_ssn_hash": [
+          "SB-000000150"
+        ]
+      },
+      "expected_within_state_matches": {},
+      "notes": "Ring claim with cross-state SSN linkage."
+    },
+    {
+      "case_id": "ring_device_a_SA-000001174",
+      "category": "ring_within_state_device",
+      "query_claim_id": "SA-000001174",
+      "expected_primary": "within_state_only",
+      "expected_cross_state_matches": {},
+      "expected_within_state_matches": {
+        "device_fingerprint_hash": [
+          "SA-000001116"
+        ]
+      },
+      "notes": "Ring claim with within-state device linkage (State A)."
+    },
+    {
+      "case_id": "ring_bank_SA-000001109",
+      "category": "ring_bank_link",
+      "query_claim_id": "SA-000001109",
+      "expected_primary": "cross_state",
+      "expected_cross_state_matches": {
+        "bank_routing_hash": [
+          "SB-000000026"
+        ],
+        "bank_account_hash": [
+          "SB-000000026"
+        ]
+      },
+      "expected_within_state_matches": {},
+      "notes": "Ring claim with cross-state bank linkage."
+    },
+    {
+      "case_id": "clean_SA-000001135",
+      "category": "clean",
+      "query_claim_id": "SA-000001135",
+      "expected_primary": "no_match",
+      "expected_cross_state_matches": {},
+      "expected_within_state_matches": {},
+      "notes": "Clean claim not in any seeded fraud pattern; expect no matches."
+    },
+    {
+      "case_id": "clean_SA-000000896",
+      "category": "clean",
+      "query_claim_id": "SA-000000896",
+      "expected_primary": "no_match",
+      "expected_cross_state_matches": {},
+      "expected_within_state_matches": {},
+      "notes": "Clean claim not in any seeded fraud pattern; expect no matches."
+    },
+    {
+      "case_id": "clean_SA-000000657",
+      "category": "clean",
+      "query_claim_id": "SA-000000657",
+      "expected_primary": "no_match",
+      "expected_cross_state_matches": {},
+      "expected_within_state_matches": {},
+      "notes": "Clean claim not in any seeded fraud pattern; expect no matches."
+    },
+    {
+      "case_id": "clean_SA-000000792",
+      "category": "clean",
+      "query_claim_id": "SA-000000792",
+      "expected_primary": "no_match",
+      "expected_cross_state_matches": {},
+      "expected_within_state_matches": {},
+      "notes": "Clean claim not in any seeded fraud pattern; expect no matches."
+    }
+  ]
+}

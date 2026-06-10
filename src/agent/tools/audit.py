@@ -25,13 +25,29 @@ DATABASE_NAME = "ui_fraud_coordination"
 AUDIT_LOG_COLLECTION = "audit_log"
 
 
+# Lazy-initialized, module-level client. Reused across all calls.
+_mongo_client: MongoClient | None = None
+
+
 def _get_audit_collection():
-    """Return the audit log collection."""
-    uri = os.environ.get("MONGODB_URI")
-    if not uri:
-        raise RuntimeError("MONGODB_URI not set in .env")
-    client = MongoClient(uri)
-    return client[DATABASE_NAME][AUDIT_LOG_COLLECTION]
+    """Return the audit log collection. Uses a shared, lazy-initialized client."""
+    global _mongo_client
+    if _mongo_client is None:
+        uri = os.environ.get("MONGODB_URI")
+        if not uri:
+            raise RuntimeError("MONGODB_URI not set in .env")
+        _mongo_client = MongoClient(uri)
+    return _mongo_client[DATABASE_NAME][AUDIT_LOG_COLLECTION]
+
+
+def _ensure_utc(dt: datetime) -> datetime:
+    """Normalize a datetime to UTC-aware form.
+
+    MongoDB BSON dates have no timezone; pymongo returns them as naive UTC.
+    """
+    if dt.tzinfo is None:
+        return dt.replace(tzinfo=timezone.utc)
+    return dt.astimezone(timezone.utc)
 
 
 def _compute_event_hash(event: dict) -> str:

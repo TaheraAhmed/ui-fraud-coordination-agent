@@ -45,7 +45,7 @@ if "session_started_at" not in st.session_state:
     st.session_state.session_started_at = datetime.now(timezone.utc)
 
 if "investigation_history" not in st.session_state:
-    # List of dicts: {query, response, started_at, completed_at, investigator_id}
+    # List of dicts: {query, findings, error, started_at, completed_at, investigator_id}
     st.session_state.investigation_history = []
 
 if "investigator_id" not in st.session_state:
@@ -108,80 +108,84 @@ with tab_investigate:
 
     st.divider()
 
-    # Initialize the query in session state on first run
-if "investigator_query" not in st.session_state:
-    st.session_state.investigator_query = ""
+    if "investigator_query" not in st.session_state:
+        st.session_state.investigator_query = ""
 
-query = st.text_area(
-    "Investigator query",
-    height=100,
-    placeholder=(
-        "e.g., Please investigate claim SA-000001126 for possible "
-        "cross-state unemployment insurance fraud."
-    ),
-    key="investigator_query",
-)
+    query = st.text_area(
+        "Investigator query",
+        height=100,
+        placeholder=(
+            "e.g., Please investigate claim SA-000001126 for possible "
+            "cross-state unemployment insurance fraud."
+        ),
+        key="investigator_query",
+    )
 
-submit_clicked = st.button(
-    "Run investigation",
-    type="primary",
-    disabled=not query.strip(),
-)
-if submit_clicked and query.strip():
-    
+    submit_clicked = st.button(
+        "Run investigation",
+        type="primary",
+        disabled=not query.strip(),
+    )
 
     if submit_clicked and query.strip():
-    # print(f"[DEBUG] Entering agent invocation block with query: {query[:80]}")
         started_at = datetime.now(timezone.utc)
 
         with st.spinner("Agent investigating — this may take 10-30 seconds..."):
             try:
-                response = invoke_agent(
+                findings = invoke_agent(
                     user_query=query,
                     investigator_id=st.session_state.investigator_id,
                     verbose=False,
                 )
                 error: Optional[str] = None
             except Exception as e:
-                response = ""
+                findings = None
                 error = f"{type(e).__name__}: {e}"
 
         completed_at = datetime.now(timezone.utc)
 
         st.session_state.investigation_history.append({
             "query": query,
-            "response": response,
+            "findings": findings,
             "error": error,
             "started_at": started_at,
             "completed_at": completed_at,
             "investigator_id": st.session_state.investigator_id,
         })
 
-    # Show all investigations in this session, most recent first
     if st.session_state.investigation_history:
         st.divider()
         n = len(st.session_state.investigation_history)
         st.subheader(f"Findings · {n} {'investigation' if n == 1 else 'investigations'}")
-        
 
         for i, item in enumerate(reversed(st.session_state.investigation_history)):
-
             claim_match = re.search(r"(SA-|SB-)\d+", item["query"])
             claim_ref = claim_match.group(0) if claim_match else "query"
             status = "⚠ error" if item["error"] else "✓ complete"
             duration = (item["completed_at"] - item["started_at"]).total_seconds()
             with st.expander(
-                f"Investigation {n - i} — {claim_ref} · {status} · "
+                f"#{n - i} · {claim_ref} · {status} · "
                 f"{item['started_at'].strftime('%H:%M:%S UTC')} · "
                 f"{duration:.1f}s",
                 expanded=(i == 0),
-                ):
-                st.caption(f"**Investigator:** `{item['investigator_id']}` · **Query:** {item['query']}")
+            ):
+                st.caption(
+                    f"**Investigator:** `{item['investigator_id']}` · "
+                    f"**Query:** {item['query']}"
+                )
                 st.divider()
+
                 if item["error"]:
                     st.error(f"Agent error: {item['error']}")
-                else:
-                    st.markdown(item["response"])
+                elif item.get("findings") is not None:
+                    findings = item["findings"]
+                    st.markdown(findings.get("narrative", "_No narrative produced._"))
+
+                    with st.expander("View structured findings (JSON)", expanded=False):
+                        structured_only = {
+                            k: v for k, v in findings.items() if k != "narrative"
+                        }
+                        st.json(structured_only)
 
 
 # ---------------- Audit Log tab ----------------

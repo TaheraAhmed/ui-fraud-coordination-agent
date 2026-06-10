@@ -1,0 +1,96 @@
+{
+  "timestamp_utc": "20260610T054528Z",
+  "summary": {
+    "total_cases": 1,
+    "overall_pass": 0,
+    "overall_pass_rate": 0.0,
+    "primary_correct": 0,
+    "primary_accuracy": 0.0,
+    "by_category": {
+      "cross_state_ssn": {
+        "total": 1,
+        "passing": 0,
+        "primary_correct": 0,
+        "pass_rate": 0.0,
+        "primary_accuracy": 0.0
+      }
+    }
+  },
+  "case_results": [
+    {
+      "case_id": "ssn_reuse_SA-000001126",
+      "category": "cross_state_ssn",
+      "query_claim_id": "SA-000001126",
+      "expected_primary": "cross_state",
+      "actual_primary": "no_match",
+      "primary_correct": false,
+      "cross_state_matches": {
+        "claimant_ssn_hash": {
+          "expected": [
+            "SB-000000692"
+          ],
+          "actual": [],
+          "missed": [
+            "SB-000000692"
+          ],
+          "false_positive": [],
+          "exact_match": false
+        },
+        "device_fingerprint_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "bank_routing_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "bank_account_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        }
+      },
+      "within_state_matches": {
+        "claimant_ssn_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "device_fingerprint_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "bank_routing_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        },
+        "bank_account_hash": {
+          "expected": [],
+          "actual": [],
+          "missed": [],
+          "false_positive": [],
+          "exact_match": true
+        }
+      },
+      "matches_exact": false,
+      "overall_pass": false,
+      "agent_narrative": "Claim under investigation: SA-000001126\n\nPrimary finding \u2014 Cross-state matches: no, 0\n  - SSN hash: none\n  - Device fingerprint hash: none\n  - Bank routing hash: none\n  - Bank account hash: none\n\nSecondary finding \u2014 Within-state collisions: no, 0\n\nRetrieved claimant context (cross-state matches only, with audit trail):\n  - No quasi-identifiers retrieved \u2014 no cross-state match warranted release.\n\nAssessment: I was unable to complete the federation queries due to a database connection error (SSL handshake failed). Therefore, I cannot determine if there are any cross-state or within-state matches for claim SA-000001126 at this time. Please try again later or contact support if the issue persists.\n\nAudit references: No audit hashes were generated for successful federation queries due to the error."
+    }
+  ]
+}

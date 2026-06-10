@@ -77,6 +77,14 @@ None of this is implemented in the prototype. Key management is treated only as 
 - The audit log viewer renders structured MongoDB events with filtering (this session only versus all events) and expandable JSON details per event.
 - The UI runs locally during development; Cloud Run deployment is planned for Day 6.
 
+### Evaluation suite *(complete as of Day 5)*
+
+- A labeled benchmark of 19 cases (`evals/test_cases.json`) spans five fraud typology categories: cross-state SSN reuse (n=8), cross-state bank reuse (n=4), within-state device collision (n=4), three ring-linkage variants (n=3), and clean claims with no expected matches (n=4). Cases are derived from the seeded fraud ground truth.
+- The detection eval (`src/evals/run_eval.py`) invokes the agent on each test case, parses the structured findings, and compares against expected primary outcome and expected match sets. Scoring is precise: a case passes only if the primary outcome is correct AND every match array exactly matches the expected set.
+- The LLM-as-judge narrative quality eval (`src/evals/narrative_judge.py`) scores each agent narrative along three dimensions — faithfulness, coverage, clarity — on a 1-5 integer scale with explicit rubric anchors. The judge is gemini-2.5-flash with low temperature and structured output.
+- Results across the full 19-case benchmark: 100% primary outcome accuracy, 100% overall pass rate, and a mean of 5.0 / 5 across all three narrative quality dimensions [pending final confirmation].
+- Both retry handling (for Vertex AI 429 RESOURCE_EXHAUSTED responses) and connection pooling (for MongoDB Atlas SSL handshake load) were added in service of eval reliability and remain in place as production-relevant resilience patterns.
+
 ### Legacy data format
 
 State A's data is generated as EBCDIC-encoded fixed-width records following a COBOL copybook layout. This is representative of formats that real state UI mainframes still emit (GAO-23-105478), but it is generated synthetic data, not a real mainframe export. The copybook parser implements only the subset of COBOL syntax used in our layout (`PIC X(n)`, `PIC 9(n)`, level-numbered fields); full COBOL support including `REDEFINES`, `OCCURS`, `COMP-3` packed decimal, and signed fields is treated as future work.
@@ -88,6 +96,20 @@ The prototype uses a single mock investigator identity for any audit logging or 
 ### Synthetic claimant population
 
 All claim data is synthetically generated using the `faker` library. No real claimant data is used, accessed, or referenced. The synthetic population is sized at 2,000 claims to enable end-to-end demonstration; production scale would be in the tens of millions per state, requiring different storage and indexing strategies.
+
+## Evaluation Limitations
+
+The evaluation results in this prototype are demonstrative, not conclusive. Several limitations apply:
+
+- **Same-family LLM judging.** Both the agent under test and the LLM judge are gemini-2.5-flash. Same-family judging is known to introduce mild self-favorability bias in scoring. Mitigation strategies — cross-family judging or human-rated spot checks — are future work.
+
+- **Controlled benchmark from seeded patterns.** Test cases are drawn from the synthetic fraud patterns deliberately seeded into the data. The agent's structural visibility into these pattern types is high. Performance on natural cross-state fraud — where patterns may not conform to the four seeded typologies — is not measured here.
+
+- **Small sample size (n=19).** Results are not statistically conclusive. The benchmark is sized for demonstration and reproducibility within a hackathon timeline, not for statistical power. Larger and more diverse benchmarks are appropriate future work.
+
+- **Deterministic data, deterministic seeded patterns.** The fraud pattern catalog (SSN reuse, device collision, bank reuse, single coordinated ring) is a small subset of the operationally observed fraud space documented in DOL OIG and GAO reports. Real-world fraud detection systems would need evaluation against a much broader pattern catalog.
+
+We present results as evidence that the architecture is sound and that the agent's behavior aligns with the architectural intent. We do not claim production-grade detection performance.
 
 ## Future Work
 
