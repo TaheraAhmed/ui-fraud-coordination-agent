@@ -27,6 +27,7 @@ from src.agent.tools.modern_reader import search_modern_source_by_hash
 from src.agent.findings_schema import GEMINI_FINDINGS_SCHEMA
 
 from src.observability.arize_setup import setup_arize_tracing
+from src.observability.dynatrace_setup import setup_dynatrace_tracing, get_tracer
 
 
 load_dotenv()
@@ -110,16 +111,28 @@ def _execute_tool_call(function_call: types.FunctionCall) -> dict[str, Any]:
 
     tool_fn = TOOL_REGISTRY[tool_name]
 
-    try:
-        result = tool_fn(**arguments)
-        # Tool results may be lists, dicts, or scalars; wrap consistently
-        if isinstance(result, list):
-            # Truncate large lists to keep context window manageable
-            display = result[:20]
-            return {"result": display, "total_count": len(result), "truncated": len(result) > 20}
-        return {"result": result}
-    except Exception as e:
-        return {"error": f"{type(e).__name__}: {e}"}
+    tracer = get_tracer("ui_fraud_coordination_agent.tools")
+    with tracer.start_as_current_span(f"tool.{tool_name}") as span:
+        # Attach the tool name and a redacted argument summary to the span
+        span.set_attribute("tool.name", tool_name)
+        span.set_attribute("tool.arg_count", len(arguments))
+        # Don't put raw arguments on the span — they may contain sensitive
+        # data like SSN hashes. Just record the argument keys.
+        span.set_attribute("tool.arg_keys", ",".join(sorted(arguments.keys())))
+
+        try:
+            result = tool_fn(**arguments)
+            span.set_attribute("tool.status", "ok")
+            if isinstance(result, list):
+                display = result[:20]
+                span.set_attribute("tool.result_count", len(result))
+                return {"result": display, "total_count": len(result), "truncated": len(result) > 20}
+            return {"result": result}
+        except Exception as e:
+            span.set_attribute("tool.status", "error")
+            span.set_attribute("tool.error_type", type(e).__name__)
+            span.record_exception(e)
+            return {"error": f"{type(e).__name__}: {e}"}
 
 
 def invoke_agent(
@@ -148,6 +161,8 @@ def invoke_agent(
             }
     """
     setup_arize_tracing()
+    setup_arize_tracing()
+    setup_dynatrace_tracing()
 
     project_id = os.environ.get("GCP_PROJECT_ID")
     location = os.environ.get("GCP_LOCATION", "us-central1")

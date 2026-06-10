@@ -82,7 +82,7 @@ None of this is implemented in the prototype. Key management is treated only as 
 - A labeled benchmark of 19 cases (`evals/test_cases.json`) spans five fraud typology categories: cross-state SSN reuse (n=8), cross-state bank reuse (n=4), within-state device collision (n=4), three ring-linkage variants (n=3), and clean claims with no expected matches (n=4). Cases are derived from the seeded fraud ground truth.
 - The detection eval (`src/evals/run_eval.py`) invokes the agent on each test case, parses the structured findings, and compares against expected primary outcome and expected match sets. Scoring is precise: a case passes only if the primary outcome is correct AND every match array exactly matches the expected set.
 - The LLM-as-judge narrative quality eval (`src/evals/narrative_judge.py`) scores each agent narrative along three dimensions — faithfulness, coverage, clarity — on a 1-5 integer scale with explicit rubric anchors. The judge is gemini-2.5-flash with low temperature and structured output.
-- Results across the full 19-case benchmark: 100% primary outcome accuracy, 100% overall pass rate, and a mean of 5.0 / 5 across all three narrative quality dimensions [pending final confirmation].
+- - Results across the full 19-case benchmark: 100% primary outcome accuracy, 100% overall pass rate, and a mean of 5.0 / 5 across all three narrative quality dimensions (faithfulness, coverage, clarity), with no case scoring below 5 on any dimension. Same-family judging and small sample size are documented as evaluation limitations.
 - Both retry handling (for Vertex AI 429 RESOURCE_EXHAUSTED responses) and connection pooling (for MongoDB Atlas SSL handshake load) were added in service of eval reliability and remain in place as production-relevant resilience patterns.
 
 ### Legacy data format
@@ -110,6 +110,16 @@ The evaluation results in this prototype are demonstrative, not conclusive. Seve
 - **Deterministic data, deterministic seeded patterns.** The fraud pattern catalog (SSN reuse, device collision, bank reuse, single coordinated ring) is a small subset of the operationally observed fraud space documented in DOL OIG and GAO reports. Real-world fraud detection systems would need evaluation against a much broader pattern catalog.
 
 We present results as evidence that the architecture is sound and that the agent's behavior aligns with the architectural intent. We do not claim production-grade detection performance.
+
+### Network access controls *(introduced at Day 6 deployment)*
+
+For the Cloud Run hosted deployment, MongoDB Atlas is configured to allow connections from any IP (`0.0.0.0/0`). This is acceptable for a hackathon prototype operating on synthetic claim data with no real PII. Production deployment of a system handling real UI claimant data would require one of:
+
+- VPC peering between the Cloud Run service's project and MongoDB Atlas
+- Atlas Private Endpoint via Google Cloud Private Service Connect
+- A bastion / proxy architecture with allowlisted egress IPs
+
+The application-layer privacy primitives (HMAC-SHA256 identifier transformation, structural exclusion of quasi-identifiers from federation exchange, audited per-claim release) remain in force regardless of network access controls.
 
 ## Future Work
 

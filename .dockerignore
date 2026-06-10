@@ -1,0 +1,30 @@
+# Don't ship dev artifacts to the image
+.venv/
+.git/
+.pytest_cache/
+.cursor/
+.vscode/
+.idea/
+.DS_Store
+__pycache__/
+*.pyc
+
+# Don't ship secrets
+.env
+.env.*
+
+# Don't ship local data the deployed app doesn't need
+data/state_a_claims.json
+data/state_b_claims.json
+data/ground_truth.json
+data/results/
+# Note: data/state_a_legacy.dat IS shipped — needed by the legacy reader for demo
+
+# Don't ship eval infrastructure (the deployed app doesn't run evals)
+evals/
+
+# Don't ship docs
+docs/
+*.md
+!README.md
+!SCOPE.md
