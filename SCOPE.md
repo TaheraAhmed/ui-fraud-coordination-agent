@@ -97,6 +97,22 @@ The prototype uses a single mock investigator identity for any audit logging or 
 
 All claim data is synthetically generated using the `faker` library. No real claimant data is used, accessed, or referenced. The synthetic population is sized at 2,000 claims to enable end-to-end demonstration; production scale would be in the tens of millions per state, requiring different storage and indexing strategies.
 
+### Container data and PII at rest *(introduced at Day 6 deployment)*
+
+The deployed Cloud Run container includes raw synthetic claim data files in its filesystem:
+
+- `data/state_a_legacy.dat` — 1,200 EBCDIC-encoded synthetic State A claims, including raw synthetic SSNs, names, DOBs, addresses, and bank info
+- `data/state_a_claims.json` — the same 1,200 claims in JSON form
+
+This is acceptable for the prototype because all data is synthetically generated and corresponds to no real person. The privacy architecture's enforcement happens at the **tool layer**, not at the storage layer: tools that read these files always apply `transform_claim_identifiers` (hashing sticky identifiers, stripping quasi-identifiers) before returning data to the agent. Users of the app cannot extract raw SSNs, device fingerprints, or bank info through any tool the agent exposes.
+
+A production deployment handling real PII would not store raw claim data in the container image. Real systems would use:
+- A properly-secured database with encryption at rest and access controls
+- Audit logging at the storage layer in addition to the tool layer
+- Signed container images and admission policies preventing unauthorized image changes
+
+The application-layer privacy guarantees (HMAC-SHA256 identifier transformation, structural exclusion of quasi-identifiers from federation exchange, audited per-claim release) remain in force regardless of storage layer architecture.
+
 ## Evaluation Limitations
 
 The evaluation results in this prototype are demonstrative, not conclusive. Several limitations apply:
