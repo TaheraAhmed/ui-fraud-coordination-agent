@@ -66,7 +66,7 @@ powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | ie
 ### 2. Clone and install dependencies
 
 ```bash
-git clone https://github.com/YOUR-USERNAME/ui-fraud-coordination-agent.git
+git clone https://github.com/TaheraAhmed/ui-fraud-coordination-agent.git
 cd ui-fraud-coordination-agent
 uv sync
 ```
