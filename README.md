@@ -148,4 +148,4 @@ Key federal sources informing this work:
 - OMB Memorandum M-25-21 — federal AI governance requirements
 - NIST AI Risk Management Framework (AI RMF 1.0)
 
-See `docs/citations.md` for full bibliography (forthcoming).
+See `docs/citations.md` for full bibliography.
