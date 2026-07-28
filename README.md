@@ -27,12 +27,92 @@ A single Gemini agent (built on Google Cloud Agent Platform) orchestrates tools 
 - Transform sensitive identifiers under a federation-wide cryptographic salt
 - Query the federation for cross-state matches
 - Produce due-process explanations for any flagged finding
-- Log every cross-state query to an immutable audit trail
+- Log every cross-state query to an audit trail with per-event content hashes.
 
 Partner integrations:
 - **MongoDB Atlas** — modernized state data + agent working graph + audit collection
 - **Arize AX** — agent reasoning observability and behavior evaluation
 - **Dynatrace** — distributed tracing across the federation flow
+
+## Worked example
+
+A single investigation, end to end. An investigator submits one claim ID.
+The agent reads the claim from its source state, computes federation-safe
+hashes for its sticky identifiers, queries the federation, and returns two
+artifacts: a machine-readable findings object and a due-process narrative.
+
+Access to data is two-tiered by design. Transformed identifier hashes are
+exchanged freely across the federation. Quasi-identifiers (name, date of
+birth, address) are never exchanged in the federation query — they are
+retrieved only after a cross-state match is found, through a separate
+audited tool that logs every release with a justification and a content
+hash. The narrative below shows those post-audit retrievals; the audit
+references at the bottom are the log entries that authorized them.
+
+### Input
+claim_id: SA-000001126
+### Output 1 — structured findings (machine-readable)
+
+```json
+{
+  "source_claim_id": "SA-000001126",
+  "primary_outcome": "cross_state",
+  "cross_state_matches": {
+    "claimant_ssn_hash": ["SB-000000692"],
+    "device_fingerprint_hash": [],
+    "bank_routing_hash": [],
+    "bank_account_hash": []
+  },
+  "within_state_matches": {
+    "claimant_ssn_hash": [],
+    "device_fingerprint_hash": [],
+    "bank_routing_hash": [],
+    "bank_account_hash": []
+  },
+  "audit_event_hashes": [
+    "7b69f343f572e4b64dbee16bcde0d96a643fd982c3dd5e83ab552667456e9b99",
+    "7fc720e4a6e695d7ca397bb34f96114b24eb18ebb6e50ec0d9e1bb56d8c024c7",
+    "92a5596e685d9ef4c11c467101d10fe9633912ee6097461356bad935e926f8c3",
+    "3782c554d664fc2e917ed8a612c32ce248df2c13a7c2df6612d887749d192a35",
+    "fa410aed2fbd8b35f49900bb66389535812173d1dae95880a0c0d2fc145e11c6",
+    "908f5322e3ba916f2b39168d1385ce1fabc07b96e5b9c259df9386a5b6019656"
+  ]
+}
+```
+
+The match is on `claimant_ssn_hash` only. The two claims share a
+transformed SSN identifier but nothing else — no shared device, bank
+routing, or bank account. That single-axis match is the signal.
+
+### Output 2 — due-process narrative (human-readable)
+
+> **Claim under investigation:** SA-000001126
+>
+> **Primary finding — cross-state matches: yes, 1**
+> - SSN hash: SB-000000692
+> - Device fingerprint hash: none
+> - Bank routing hash: none
+> - Bank account hash: none
+>
+> **Secondary finding — within-state collisions: no, 0**
+>
+> **Retrieved claimant context (cross-state matches only, with audit trail):**
+> - Claim SA-000001126 — Name: Jennifer Bailey, DOB: 2000-09-05,
+>   Address: 92818 Williams Ramp
+> - Claim SB-000000692 — Name: Dylan Simmons, DOB: 1966-08-18,
+>   Address: 53439 Andrews Mountain
+>
+> **Assessment:** A cross-state match was identified on the claimant's SSN
+> hash between SA-000001126 (State AA) and SB-000000692 (State BB),
+> indicating the same Social Security Number was used to file in both
+> states. The associated names and dates of birth differ (Jennifer Bailey,
+> 2000-09-05 and Dylan Simmons, 1966-08-18), consistent with identity theft
+> or fraudulent use of an SSN across state lines. No device, bank routing,
+> or bank account matches were found.
+
+All data shown is synthetic. Claimant context appears only because a
+cross-state match triggered an audited retrieval; each retrieval is
+recorded in the audit references above.
 
 ## What this is not
 
