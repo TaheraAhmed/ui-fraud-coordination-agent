@@ -1,0 +1,23 @@
+[theme]
+# Default theme is light; users can toggle to dark via Streamlit's settings menu.
+base = "light"
+
+# Primary accent — used for the primary button, links, focused states
+primaryColor = "#5C7A5C"
+
+# Main background
+backgroundColor = "#FAFAF7"
+
+# Sidebar background, code blocks, secondary surfaces
+secondaryBackgroundColor = "#EFEEE8"
+
+# Body text
+textColor = "#2A2F2A"
+
+# Font — sans-serif by default, kept clean
+font = "sans serif"
+
+[theme.sidebar]
+# Sidebar-specific overrides
+backgroundColor = "#EFEEE8"
+textColor = "#2A2F2A"

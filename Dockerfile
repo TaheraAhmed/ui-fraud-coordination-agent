@@ -22,8 +22,10 @@ RUN uv sync --frozen --no-dev
 COPY src/ ./src/
 COPY data/samples/ ./data/samples/
 COPY data/state_a_legacy.dat ./data/state_a_legacy.dat
+COPY data/state_a_claims.json ./data/state_a_claims.json
 COPY src/data/copybook_layout.txt ./src/data/copybook_layout.txt
 COPY src/agent/prompts/ ./src/agent/prompts/
+COPY .streamlit/ ./.streamlit/
 
 # Install the project itself in editable mode so src/ imports resolve
 RUN uv pip install --no-deps -e .

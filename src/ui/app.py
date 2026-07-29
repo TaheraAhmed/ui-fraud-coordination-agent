@@ -12,6 +12,7 @@ from datetime import datetime, timezone
 from typing import Optional
 import re
 import streamlit as st
+import base64
 # from dotenv import load_dotenv
 
 # load_dotenv()
@@ -55,8 +56,26 @@ if "investigator_id" not in st.session_state:
 # ---------------- Sidebar ----------------
 
 with st.sidebar:
-    st.title("UI Fraud Coordination Agent")
-    st.caption("Multi-state UI fraud detection")
+    
+
+# Load and base64-encode the logo so we can inline it with custom styling
+
+    with open("src/ui/assets/logo.png", "rb") as f:
+        logo_b64 = base64.b64encode(f.read()).decode()
+
+    st.markdown(
+        f"""
+        <div style="display: flex; flex-direction: column; align-items: center; margin-bottom: 1.5rem;">
+            <img src="data:image/png;base64,{logo_b64}"
+                style="width: 160px; height: auto; border-radius: 12px; margin-bottom: 0.75rem;"/>
+            <h2 style="text-align: center; color: #2A2F2A; font-size: 1.2rem; margin: 0;
+                    font-weight: 600; line-height: 1.3;">
+                UI Fraud Investigative<br/>Agent
+            </h2>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
 
     st.divider()
 
@@ -92,19 +111,16 @@ with st.sidebar:
 
 # ---------------- Main content: tabs ----------------
 
-tab_investigate, tab_audit = st.tabs(["🔎 Investigation", "📋 Audit Log"])
+tab_investigate, tab_audit = st.tabs(["Investigation", "Audit Log"])
 
 
 # ---------------- Investigation tab ----------------
 
 with tab_investigate:
-    st.subheader("Multi-state UI fraud investigation")
-    st.caption(
-        "Ask in natural language. The agent coordinates across State AA "
-        "(legacy mainframe) and State BB (modern data store) under a "
-        "privacy-preserving protocol with full audit trail. "
-        "Powered by `gemini-2.5-flash` on Google Cloud Agent Platform."
+    st.markdown(
+        "The agent coordinates across State AA (legacy mainframe) and State BB (modern data store) under a privacy-preserving protocol with full audit trail."
     )
+    st.caption("Powered by `gemini-2.5-flash` on Google Cloud Agent Platform.")
 
     st.divider()
 
@@ -120,7 +136,11 @@ with tab_investigate:
         ),
         key="investigator_query",
     )
-
+    st.caption(
+                "💡 This agent investigates specific UI claims by claim ID "
+                "(format `SA-NNNNNNNNN` or `SB-NNNNNNNNN`). "
+                "Try one of the example queries in the sidebar to start."
+            )
     submit_clicked = st.button(
         "Run investigation",
         type="primary",
@@ -263,13 +283,17 @@ with tab_audit:
 
 # ---------------- Footer ----------------
 
+
 st.divider()
-col_a, col_b, col_c = st.columns(3)
-with col_a:
-    st.caption("Google Cloud Rapid Agent Hackathon · MongoDB Track")
-with col_b:
+footer_left, footer_right = st.columns([3, 2])
+with footer_left:
     st.caption(
-        "[GitHub repo](https://github.com/TaheraAhmed/ui-fraud-coordination-agent) · MIT licensed"
+        "Google Cloud Rapid Agent Hackathon · MongoDB Track · "
+        "[GitHub repo](https://github.com/TaheraAhmed/ui-fraud-coordination-agent) · "
+        "MIT licensed"
     )
-with col_c:
-    st.caption("Built with Gemini 2.5 Flash, MongoDB Atlas, Arize AX")
+with footer_right:
+    st.caption(
+        "Built with Gemini 2.5 Flash, MongoDB Atlas, "
+        "Arize AX, and Dynatrace"
+    )

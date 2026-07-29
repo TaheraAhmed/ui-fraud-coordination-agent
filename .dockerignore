@@ -14,11 +14,12 @@ __pycache__/
 .env.*
 
 # Don't ship local data the deployed app doesn't need
-data/state_a_claims.json
 data/state_b_claims.json
 data/ground_truth.json
 data/results/
-# Note: data/state_a_legacy.dat IS shipped — needed by the legacy reader for demo
+# Note: these data files ARE shipped — needed by readers for demo:
+#   - data/state_a_legacy.dat (read by legacy_reader for EBCDIC source)
+#   - data/state_a_claims.json (read by local_lookup for State A quasi-identifiers)
 
 # Don't ship eval infrastructure (the deployed app doesn't run evals)
 evals/

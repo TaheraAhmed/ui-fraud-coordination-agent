@@ -215,6 +215,16 @@ print('Federation salt set:', bool(os.environ.get('FEDERATION_SALT')))
 
 All four configuration checks should print `True`. If any return `False`, your `.env` is missing that key.
 
+## Building for Cloud Run from Apple Silicon
+
+Cloud Run runs linux/amd64 containers. When building on Apple Silicon (M1/M2/M3/M4):
+
+\`\`\`bash
+docker buildx build --platform linux/amd64 -t ui-fraud-coordination-agent:local . --load
+\`\`\`
+
+The `--platform` flag forces amd64 even when the host is arm64. Standard `docker build` will produce arm64 images that Cloud Run rejects.
+
 ## License
 
 MIT — see `LICENSE` file.

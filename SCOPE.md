@@ -93,6 +93,18 @@ State A's data is generated as EBCDIC-encoded fixed-width records following a CO
 
 The prototype uses a single mock investigator identity for any audit logging or queries. Production deployment would require federation with state workforce agency identity providers via SAML or OIDC.
 
+### Quasi-identifier access controls *(local_lookup.py)*
+
+The `request_local_details` tool has three production gaps:
+
+- **Free-form justification with no validation.** The `justification` parameter accepts any non-empty string. An authenticated user could pass `"x"` as justification and retrieve PII for any claim. Production would require structured justification codes tied to an active, approved investigation ID.
+- **No rate limiting.** There is no per-investigator throttle on how many lookups can be made in a given time window. A compromised account could enumerate the full claimant population. Production would require rate limiting enforced at the API gateway or middleware layer.
+- **All quasi-identifier fields released together.** Every call to `request_local_details` returns all five fields (`first_name`, `last_name`, `dob`, `address`, `ip_address`) regardless of which fields are actually needed. Production would apply field-level access control based on investigation type and data minimisation requirements.
+
+### Audit log is detective, not preventive
+
+The audit log records every quasi-identifier release and failed lookup, but does not block any access. A determined insider with tool access could exfiltrate the full claimant population and the audit log would simply be a record of it having happened. Production would pair the audit log with preventive controls (rate limiting, structured justification, investigator authentication) so that the log functions as a corroborating control rather than the only one.
+
 ### Synthetic claimant population
 
 All claim data is synthetically generated using the `faker` library. No real claimant data is used, accessed, or referenced. The synthetic population is sized at 2,000 claims to enable end-to-end demonstration; production scale would be in the tens of millions per state, requiring different storage and indexing strategies.
