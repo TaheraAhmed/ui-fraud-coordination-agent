@@ -30,9 +30,12 @@ A single Gemini agent (built on Google Cloud Agent Platform) orchestrates tools 
 - Log every cross-state query to an audit trail with per-event content hashes.
 
 Partner integrations:
+
 - **MongoDB Atlas** — modernized state data + agent working graph + audit collection
 - **Arize AX** — agent reasoning observability and behavior evaluation
 - **Dynatrace** — distributed tracing across the federation flow
+
+Architecture: heterogeneous state sources normalized through adapters, hashed, queried on hashes only by a Gemini agent, with quasi-identifiers released only through an audited gate
 
 ## Worked example
 
@@ -50,7 +53,9 @@ hash. The narrative below shows those post-audit retrievals; the audit
 references at the bottom are the log entries that authorized them.
 
 ### Input
+
 claim_id: SA-000001126
+
 ### Output 1 — structured findings (machine-readable)
 
 ```json
@@ -89,6 +94,7 @@ routing, or bank account. That single-axis match is the signal.
 > **Claim under investigation:** SA-000001126
 >
 > **Primary finding — cross-state matches: yes, 1**
+>
 > - SSN hash: SB-000000692
 > - Device fingerprint hash: none
 > - Bank routing hash: none
@@ -97,10 +103,11 @@ routing, or bank account. That single-axis match is the signal.
 > **Secondary finding — within-state collisions: no, 0**
 >
 > **Retrieved claimant context (cross-state matches only, with audit trail):**
+>
 > - Claim SA-000001126 — Name: Jennifer Bailey, DOB: 2000-09-05,
->   Address: 92818 Williams Ramp
+> Address: 92818 Williams Ramp
 > - Claim SB-000000692 — Name: Dylan Simmons, DOB: 1966-08-18,
->   Address: 53439 Andrews Mountain
+> Address: 53439 Andrews Mountain
 >
 > **Assessment:** A cross-state match was identified on the claimant's SSN
 > hash between SA-000001126 (State AA) and SB-000000692 (State BB),
@@ -131,6 +138,8 @@ Requires Python 3.11+ and [uv](https://docs.astral.sh/uv/) for package managemen
 - An Arize AX account
 - A Dynatrace trial tenant
 
+
+
 ### 1. Install uv
 
 If you don't have `uv` installed:
@@ -142,6 +151,8 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 # Windows (PowerShell)
 powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
 ```
+
+
 
 ### 2. Clone and install dependencies
 
@@ -162,6 +173,8 @@ gcloud auth application-default login
 gcloud config set project ui-fraud-coordination
 ```
 
+
+
 ### 4. Configure environment variables
 
 ```bash
@@ -180,6 +193,8 @@ Open `.env` in your editor and fill in real values for:
 uv run python -c "import secrets; print(secrets.token_hex(32))"
 ```
 
+
+
 ### 5. Run commands
 
 `uv run` automatically activates the project's virtual environment, so you don't need to source it manually:
@@ -197,6 +212,8 @@ uv add --dev pytest
 # Run tests
 uv run pytest
 ```
+
+
 
 ### 6. Verify setup
 
@@ -219,9 +236,9 @@ All four configuration checks should print `True`. If any return `False`, your `
 
 Cloud Run runs linux/amd64 containers. When building on Apple Silicon (M1/M2/M3/M4):
 
-\`\`\`bash
+bash
 docker buildx build --platform linux/amd64 -t ui-fraud-coordination-agent:local . --load
-\`\`\`
+
 
 The `--platform` flag forces amd64 even when the host is arm64. Standard `docker build` will produce arm64 images that Cloud Run rejects.
 
@@ -232,6 +249,7 @@ MIT — see `LICENSE` file.
 ## Citations
 
 Key federal sources informing this work:
+
 - U.S. DOL OIG report 19-22-005-03-315 — pandemic UI fraud quantification
 - GAO-23-105478 — state UI system modernization findings
 - 20 CFR 603 — UI claim information confidentiality
