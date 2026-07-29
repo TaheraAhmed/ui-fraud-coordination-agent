@@ -35,7 +35,7 @@ Partner integrations:
 - **Arize AX** — agent reasoning observability and behavior evaluation
 - **Dynatrace** — distributed tracing across the federation flow
 
-Architecture: heterogeneous state sources normalized through adapters, hashed, queried on hashes only by a Gemini agent, with quasi-identifiers released only through an audited gate
+![Architecture: each state's data is read and hash-transformed by a per-state adapter so raw PII never leaves the state boundary; a Gemini agent queries the federation on hashes only, and quasi-identifiers are released only through an audited gate](docs/architecture.svg)
 
 ## Worked example
 
