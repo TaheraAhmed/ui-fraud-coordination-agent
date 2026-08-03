@@ -6,8 +6,6 @@ A Gemini-powered agent that detects multi-state unemployment insurance fraud by 
 
 Two simulated state unemployment systems with heterogeneous data formats — one representing a legacy mainframe (EBCDIC fixed-width records, COBOL copybook layout) and one representing a modernized state (MongoDB document store) — coordinated by a Gemini agent built on Google Cloud Agent Platform. The agent reads each source through a format-specific adapter, transforms personally identifiable information using HMAC-SHA256 under a federation-wide salt, and surfaces multi-state fraud patterns without raw PII ever crossing state boundaries.
 
-Built for the [Google Cloud Rapid Agent Hackathon](https://rapid-agent.devpost.com/) — MongoDB, Arize and Dynatrace Track.
-
 ## Problem
 
 The U.S. Department of Labor Office of Inspector General has documented at least $28.9 billion in pandemic-era unemployment insurance fraud. One finding identified 991,793 Social Security Numbers filed across multiple states simultaneously — a pattern detectable only by cross-state correlation that current state UI system architectures make practically impossible.
